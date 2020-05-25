@@ -1,0 +1,12 @@
+{
+  "name": "kartra-ckeditor",
+  "version": "1.0.1",
+  "description": "Kartra ckeditor",
+  "browser": "dist/ckeditor.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GenesisDigital/kartra-ckeditor"
+  },
+  "author": "Doru Palfi",
+  "license": "ISC"
+}
