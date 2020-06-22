@@ -142,11 +142,11 @@ body {
 .cke_editable ul > li > ul > li:last-child,
 .cke_editable ul > li > ol > li:last-child, .cke_editable ol > li > ul > li:last-child,
 .cke_editable ol > li > ol > li:last-child {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .cke_editable ul:last-child, .cke_editable ol:last-child {
-    margin-bottom: 20px;
+    /* margin-bottom: 10px; */
 }
 
 .cke_email_builder {
@@ -172,6 +172,11 @@ body {
 
 .cke_email_builder.cke_editable strong {
     font-weight: 700 !important;
+}
+
+.cke_email_builder.cke_editable ul,
+.cke_email_builder.cke_editable ol {
+    margin-bottom: 15px !important;
 }
 
 /*  LATO LIGHT */
