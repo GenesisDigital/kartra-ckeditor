@@ -31,6 +31,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'indent', items: ['Outdent', 'Indent'] },
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule'] },
+            { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] }
         ];
 
     config.toolbar_inline =
