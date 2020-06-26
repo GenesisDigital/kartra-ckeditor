@@ -17,23 +17,20 @@
       var changesMade = false;
       var buildListHasRunOnce = false;
       function getUserFonts() {
-        return new Promise(function(resolve) {
-            $.ajax({
-            url: apiRoute + '/get',
-            type: 'GET'
-            }).done(function(data) {
-            var userFonts = data.fonts
-                .map(function(f) {
-                return { id: f.id, font: f.font_name, isFav: true };
-                })
-                .sort(function(a, b) {
-                if (a.font < b.font) return -1;
-                if (a.font > b.font) return 1;
-                return 0;
-                });
-            resolve(userFonts);
-            // combineFonts(userFonts);
+        $.ajax({
+          url: apiRoute + '/get',
+          type: 'GET'
+        }).done(function(data) {
+          var userFonts = data.fonts
+            .map(function(f) {
+              return { id: f.id, font: f.font_name, isFav: true };
+            })
+            .sort(function(a, b) {
+              if (a.font < b.font) return -1;
+              if (a.font > b.font) return 1;
+              return 0;
             });
+          combineFonts(userFonts);
         });
       }
       function saveFont(name) {
@@ -243,16 +240,14 @@
         CKEDITOR.plugins.add('favfonts', {
           requires: 'richcombo',
           init(editor) {
-            getUserFonts().then(function(userFonts) {
-                combineFonts(userFonts);
-                var config = editor.config;
-                addCombo(editor);
-            }); 
+            var config = editor.config;
+            addCombo(editor);
           },
         });
       }
       return {
         init() {
+          getUserFonts();
           addPlugin();
         }
       };
