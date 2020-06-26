@@ -17,6 +17,7 @@
       var changesMade = false;
       var buildListHasRunOnce = false;
       function getUserFonts() {
+        if (!jsVars.getUserFonts) return;
         $.ajax({
           url: apiRoute + '/get',
           type: 'GET'
