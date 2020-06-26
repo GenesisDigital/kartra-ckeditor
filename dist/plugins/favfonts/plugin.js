@@ -240,6 +240,7 @@
         CKEDITOR.plugins.add('favfonts', {
           requires: 'richcombo',
           init(editor) {
+            getUserFonts();
             var config = editor.config;
             addCombo(editor);
           },
@@ -247,7 +248,6 @@
       }
       return {
         init() {
-          getUserFonts();
           addPlugin();
         }
       };
