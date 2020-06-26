@@ -34,6 +34,7 @@
             resolve(userFonts);
             // combineFonts(userFonts);
             });
+        }
       }
       function saveFont(name) {
         $.ajax({
