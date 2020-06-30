@@ -1343,21 +1343,24 @@ legend.cke_voice_label {
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    transition: all 0.3s ease-in;
-    font-family: "line-cons";
+    
+    
     content: "";
     /* content: "/e983"; */
+    transition: all 0.3s ease-in;
+    font-family: "line-cons";
     speak: none;
     font-style: normal;
     font-variant: normal;
     text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
     font-size: 16px;
     color: #ccc;
     line-height: 1;
     z-index: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
+    
 }
 
 .cke_panel_listItem.favourite_font_li label input:checked + small:before {
@@ -1387,6 +1390,7 @@ legend.cke_voice_label {
 }
 
 .cke_searchbox .clear-search{
+    transition: all 0.3s ease-in;
     position: absolute;
     transform: translateY(-50%);
     top: 50%;
@@ -1409,6 +1413,14 @@ legend.cke_voice_label {
 }
 
 .cke_searchbox .clear-search > i:before{
+    font-family: "line-cons";
+    speak: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
     font-size: 14px;
     content: "";
 }
