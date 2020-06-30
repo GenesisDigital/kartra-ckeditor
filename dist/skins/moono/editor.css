@@ -1386,6 +1386,34 @@ legend.cke_voice_label {
     
 }
 
+.cke_searchbox .clear-search{
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.cke_searchbox .clear-search,
+.cke_searchbox .clear-search:focus{
+    color: #ccc;
+    text-decoration: none;
+}
+
+.cke_searchbox .clear-search:hover,
+.cke_searchbox .clear-search:focus:hover{
+    color: #f36a6a;
+    text-decoration: none;
+}
+
+.cke_searchbox .clear-search > i:before{
+    font-size: 14px;
+    content: "";
+}
+
+
 .cke_searchbox > i:before{
     font-family: "line-cons";
     content: "";
@@ -1405,7 +1433,7 @@ legend.cke_voice_label {
     -webkit-appearance: none;
     background: #fff;
     border: 1px solid #ddd;
-    padding: 9px 28px 9px 12px;
+    padding: 9px 28px 9px 38px;
     font-family: "Lato", "Roboto", "sans serif";
     font-weight: 400;
     color: #000;
