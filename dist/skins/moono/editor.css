@@ -1375,6 +1375,14 @@ legend.cke_voice_label {
     position: relative;
 }
 
+.cke_searchbox ~ .no-results{
+    padding: 10px 3px;
+    display: block;
+    font-family: "Lato", "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
 .cke_searchbox > i{
     position: absolute;
     right: 12px;
