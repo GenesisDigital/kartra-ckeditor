@@ -134,7 +134,7 @@
           $searchBox = $(
             '<span class="cke_searchbox"><input type="text" placeholder="Search font..."><i></i></span>'
           );
-          var $xBtn = $('<a href="javascript:void(0)" style="width: 10px; height: 10px; font-size: 10px; display: block"><i class="lineico-close"></i></a>').on('click', function(e) {
+          var $xBtn = $('<a href="javascript:void(0)" style="width: 10px; height: 10px; font-size: 10px; display: block; background: red"><i class="lineico-close"></i></a>').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $itemsList.forEach(function(index, li) {
@@ -168,7 +168,7 @@
               }
             });
             if (filteredList.length) {
-              $list.find('.no-results').remove();
+              $list.parent().find('.no-results').remove();
             } else {
               $list.before('<span class="no-results">No results</span>');
             }
