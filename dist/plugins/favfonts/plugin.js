@@ -141,6 +141,7 @@
                 $(li).show();
             });
             $searchBox.find('input').val('');
+            $list.parent().find('.no-results').remove();
         });
           $searchBox.find('input').before($xBtn);
           $list.before($searchBox[0]);
