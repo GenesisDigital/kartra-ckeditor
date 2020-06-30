@@ -152,7 +152,6 @@
           $searchInput.off('keyup').on('keyup', function(e) {
             // if (!this.value) return;
             var searchValue = this.value.toLocaleLowerCase();
-            var wasFound = false;
             var filteredList = $itemsList.filter(function(index, li) {
               var fontName = li.textContent.toLocaleLowerCase();
               var found = false;
@@ -168,7 +167,7 @@
                 return false;
               }
             });
-            if (wasFound) {
+            if (filteredList.length) {
               $list.find('.no-results').remove();
             } else {
               $list.before('<span class="no-results">No results</span>');
