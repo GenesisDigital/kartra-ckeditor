@@ -170,7 +170,10 @@
             if (filteredList.length) {
               $list.parent().find('.no-results').remove();
             } else {
-              $list.before('<span class="no-results">No results</span>');
+              var noResults = $list.parent().find('.no-results');
+              if (!noResults.length) {
+                $list.before('<span class="no-results">No results</span>');
+              }
             }
           });
         }
