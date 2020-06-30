@@ -137,7 +137,7 @@
           var $xBtn = $('<a href="javascript:void(0)" style="width: 10px; height: 10px; font-size: 10px; display: block; background: red"><i class="lineico-close"></i></a>').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
-            $itemsList.forEach(function(index, li) {
+            $list.children().forEach(function(index, li) {
                 $(li).show();
             });
             $searchBox.find('input').val('');
