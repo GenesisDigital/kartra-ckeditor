@@ -134,7 +134,7 @@
           $searchBox = $(
             '<span class="cke_searchbox"><input type="text" placeholder="Search font..."><i></i></span>'
           );
-          var $xBtn = $('<a href="javascript:void(0)" title="" data-toggle="tooltip" data-original-title="Clear search"><i class="lineico-close"></i></a>').on('click', function(e) {
+          var $xBtn = $('<a href="javascript:void(0)" style="width: 10px; height: 10px; font-size: 10px; display: block"><i class="lineico-close"></i></a>').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $itemsList.forEach(function(index, li) {
@@ -152,6 +152,7 @@
           $searchInput.off('keyup').on('keyup', function(e) {
             // if (!this.value) return;
             var searchValue = this.value.toLocaleLowerCase();
+            var wasFound = false;
             var filteredList = $itemsList.filter(function(index, li) {
               var fontName = li.textContent.toLocaleLowerCase();
               var found = false;
@@ -162,13 +163,16 @@
                 $(li).hide();
               }
               if (found) {
-                $list.find('.no-results').remove();
                 return true;
               } else {
-                $list.before('<span class="no-results">No results</span>');
                 return false;
               }
             });
+            if (wasFound) {
+              $list.find('.no-results').remove();
+            } else {
+              $list.before('<span class="no-results">No results</span>');
+            }
           });
         }
       }
