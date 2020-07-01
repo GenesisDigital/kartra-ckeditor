@@ -1383,7 +1383,6 @@ legend.cke_voice_label {
     line-height: 20px;
 }
 
-.cke_searchbox .clear-search,
 .cke_searchbox #clear_search{
     transition: all 0.3s ease-in;
     position: absolute;
@@ -1395,8 +1394,6 @@ legend.cke_voice_label {
     line-height: 1;
 }
 
-.cke_searchbox .clear-search,
-.cke_searchbox .clear-search:focus,
 .cke_searchbox #clear_search,
 .cke_searchbox #clear_search:focus
 {
@@ -1404,15 +1401,12 @@ legend.cke_voice_label {
     text-decoration: none;
 }
 
-.cke_searchbox .clear-search:hover,
-.cke_searchbox .clear-search:focus:hover,
 .cke_searchbox #clear_search:hover,
 .cke_searchbox #clear_search:focus:hover{
     color: #f36a6a;
     text-decoration: none;
 }
 
-.cke_searchbox .clear-search > i:before,
 .cke_searchbox #clear_search > i:before{
     font-family: "line-cons";
     speak: none;
