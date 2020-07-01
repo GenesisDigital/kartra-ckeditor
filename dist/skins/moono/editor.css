@@ -1383,21 +1383,8 @@ legend.cke_voice_label {
     line-height: 20px;
 }
 
-.cke_searchbox > i{
-    position: absolute;
-    right: 12px;
-    bottom: 10px;
-    font-size: 18px;
-    opacity: 0.5;
-    
-    font-size: 16px;
-    color: #ccc;
-    line-height: 1;
-    z-index: 1;
-    
-}
-
-.cke_searchbox .clear-search{
+.cke_searchbox .clear-search,
+.cke_searchbox #clear_search{
     transition: all 0.3s ease-in;
     position: absolute;
     transform: translateY(-50%);
@@ -1409,18 +1396,24 @@ legend.cke_voice_label {
 }
 
 .cke_searchbox .clear-search,
-.cke_searchbox .clear-search:focus{
+.cke_searchbox .clear-search:focus,
+.cke_searchbox #clear_search,
+.cke_searchbox #clear_search:focus
+{
     color: #ccc;
     text-decoration: none;
 }
 
 .cke_searchbox .clear-search:hover,
-.cke_searchbox .clear-search:focus:hover{
+.cke_searchbox .clear-search:focus:hover,
+.cke_searchbox #clear_search:hover,
+.cke_searchbox #clear_search:focus:hover{
     color: #f36a6a;
     text-decoration: none;
 }
 
-.cke_searchbox .clear-search > i:before{
+.cke_searchbox .clear-search > i:before,
+.cke_searchbox #clear_search > i:before{
     font-family: "line-cons";
     speak: none;
     font-style: normal;
@@ -1433,19 +1426,6 @@ legend.cke_voice_label {
     content: "";
 }
 
-
-.cke_searchbox > i:before{
-    font-family: "line-cons";
-    content: "";
-    speak: none;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;   
-}
-
 .cke_searchbox > input {
     border-radius: 3px;
     box-shadow: none;
@@ -1453,7 +1433,7 @@ legend.cke_voice_label {
     -webkit-appearance: none;
     background: #fff;
     border: 1px solid #ddd;
-    padding: 9px 42px 9px 38px;
+    padding: 9px 12px 9px 38px;
     font-family: "Lato", "Roboto", "sans serif";
     font-weight: 400;
     color: #000;
