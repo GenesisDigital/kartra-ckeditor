@@ -1343,21 +1343,24 @@ legend.cke_voice_label {
     top: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    transition: all 0.3s ease-in;
-    font-family: "line-cons";
+    
+    
     content: "";
     /* content: "/e983"; */
+    transition: all 0.3s ease-in;
+    font-family: "line-cons";
     speak: none;
     font-style: normal;
     font-variant: normal;
     text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
     font-size: 16px;
     color: #ccc;
     line-height: 1;
     z-index: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
+    
 }
 
 .cke_panel_listItem.favourite_font_li label input:checked + small:before {
@@ -1372,30 +1375,55 @@ legend.cke_voice_label {
     position: relative;
 }
 
-.cke_searchbox > i{
-    position: absolute;
-    right: 12px;
-    bottom: 10px;
-    font-size: 18px;
-    opacity: 0.5;
-    
-    font-size: 16px;
-    color: #ccc;
-    line-height: 1;
-    z-index: 1;
-    
+.cke_searchbox ~ .no-results{
+    padding: 10px 3px;
+    display: block;
+    font-family: "Lato", "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
 }
 
-.cke_searchbox > i:before{
+.cke_searchbox .clear-search,
+.cke_searchbox #clear_search{
+    transition: all 0.3s ease-in;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.cke_searchbox .clear-search,
+.cke_searchbox .clear-search:focus,
+.cke_searchbox #clear_search,
+.cke_searchbox #clear_search:focus
+{
+    color: #ccc;
+    text-decoration: none;
+}
+
+.cke_searchbox .clear-search:hover,
+.cke_searchbox .clear-search:focus:hover,
+.cke_searchbox #clear_search:hover,
+.cke_searchbox #clear_search:focus:hover{
+    color: #f36a6a;
+    text-decoration: none;
+}
+
+.cke_searchbox .clear-search > i:before,
+.cke_searchbox #clear_search > i:before{
     font-family: "line-cons";
-    content: "";
     speak: none;
     font-style: normal;
     font-variant: normal;
     text-transform: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;   
+    font-weight: 400;
+    font-size: 14px;
+    content: "";
 }
 
 .cke_searchbox > input {
@@ -1405,7 +1433,7 @@ legend.cke_voice_label {
     -webkit-appearance: none;
     background: #fff;
     border: 1px solid #ddd;
-    padding: 9px 28px 9px 12px;
+    padding: 9px 12px 9px 38px;
     font-family: "Lato", "Roboto", "sans serif";
     font-weight: 400;
     color: #000;
