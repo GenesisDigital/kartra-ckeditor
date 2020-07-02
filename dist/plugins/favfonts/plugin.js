@@ -134,7 +134,7 @@
           $searchBox = $(
             '<span class="cke_searchbox"><input type="text" placeholder="Search font..."></span>'
           );
-          var $xBtn = $('<a href="javascript:void(0)" id="clear_search" class="clear-search"><i class="lineico-close"></i></a>').on('click', function(e) {
+          var $xBtn = $('<a href="javascript:void(0)" id="clear_search" aria-label="Clear search" title="Clear search" class="clear-search"><i class="lineico-close"></i></a>').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $list.children().each(function(index, li) {
