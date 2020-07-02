@@ -192,7 +192,8 @@
           requiredContent: acfRules,
           panel: {
             css: [CKEDITOR.skin.getPath('editor')].concat(config.contentsCss),
-            multiSelect: false
+            multiSelect: false,
+            attributes: { 'aria-label': 'Fonts' }
           },
   
           init() {
