@@ -193,7 +193,7 @@
           panel: {
             css: [CKEDITOR.skin.getPath('editor')].concat(config.contentsCss),
             multiSelect: false,
-            attributes: { 'aria-label': 'Fonts' }
+            attributes: { 'aria-label': '' }
           },
   
           init() {
