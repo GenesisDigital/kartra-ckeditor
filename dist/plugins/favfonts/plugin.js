@@ -13,11 +13,13 @@
             ? jsVars.fonts.available
             : []
       };
-      var apiRoute = jsVars.secureBaseUrl + '/v2/favouriteFonts';
+      var secureBaseUrl = jsVars && jsVars.secureBaseUrl;
+      var fetchUserFonts = jsVars && jsVars.getUserFonts;
+      var apiRoute = secureBaseUrl && (secureBaseUrl + '/v2/favouriteFonts');
       var changesMade = false;
       var buildListHasRunOnce = false;
       function getUserFonts() {
-        if (!jsVars.getUserFonts) return;
+        if (!fetchUserFonts) return;
         $.ajax({
           url: apiRoute + '/get',
           type: 'GET'
