@@ -13,9 +13,10 @@
             ? jsVars.fonts.available
             : []
       };
-      var secureBaseUrl = jsVars && jsVars.secureBaseUrl;
+      // var secureBaseUrl = jsVars && jsVars.secureBaseUrl;
       var fetchUserFonts = jsVars && jsVars.getUserFonts;
-      var apiRoute = secureBaseUrl && (secureBaseUrl + '/v2/favouriteFonts');
+      // var apiRoute = secureBaseUrl && (secureBaseUrl + '/v2/favouriteFonts');
+      var apiRoute = jsVars.secureBaseUrl + '/v2/favouriteFonts';
       var changesMade = false;
       var buildListHasRunOnce = false;
       function getUserFonts() {
