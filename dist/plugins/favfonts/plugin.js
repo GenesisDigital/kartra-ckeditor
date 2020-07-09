@@ -123,6 +123,16 @@
         var hasSearchBox = !!$searchBox.length;
         var $list = $('ul', fontDropdownWrapper);
         var $itemsList = $list.children();
+
+        var onClearSearch = function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $list.children().each(function(index, li) {
+                $(li).show();
+            });
+            $searchBox.find('input').val('');
+            $list.parent().find('.no-results').remove();
+        };
   
         $('ul li > a', fontDropdownWrapper).each(function() {
           var $anchor = $(this);
@@ -132,25 +142,18 @@
           $li.addClass('favourite_font_li');
         });
   
-        var $xBtn = $('<a href="javascript:void(0)" id="clear_search" aria-label="Clear search" title="Clear search" class="clear-search"><i class="lineico-close"></i></a>').on('click', function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          $list.children().each(function(index, li) {
-              $(li).show();
-          });
-          $searchBox.find('input').val('');
-          $list.parent().find('.no-results').remove();
-        });
         if (!hasSearchBox) {
           $searchBox = $(
             '<span class="cke_searchbox"><input type="text" placeholder="Search font..."></span>'
           );
+          var $xBtn = $('<a href="javascript:void(0)" id="clear_search" aria-label="Clear search" title="Clear search" class="clear-search"><i class="lineico-close"></i></a>');
           $searchBox.find('input').before($xBtn);
           $list.before($searchBox[0]);
           hasSearchBox = true;
         }
   
         if (hasSearchBox) {
+          $xBtn.off('click').on('click', onClearSearch);
           var $searchInput = $('input', $searchBox[0]);
           $searchInput.off('keyup').on('keyup', function(e) {
             // if (!this.value) return;
