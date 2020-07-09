@@ -232,6 +232,8 @@
   
           onClose() {
             var fontDropdownWrapper = this._.list.element.$;
+            var $list = $('ul', fontDropdownWrapper);
+            $list.parent().find('.no-results').remove();
             $(fontDropdownWrapper).off('click');
             var searchInput = $(fontDropdownWrapper).find(
               '.cke_searchbox > input'
