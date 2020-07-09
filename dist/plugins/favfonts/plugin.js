@@ -121,6 +121,8 @@
         var fontDropdownWrapper = this._.list.element.$;
         var $searchBox = $(fontDropdownWrapper).find('.cke_searchbox');
         var hasSearchBox = !!$searchBox.length;
+        var $xBtn = $searchBox.find('#clear_search');
+        var hasXbtn = !!$xBtn.length;
         var $list = $('ul', fontDropdownWrapper);
         var $itemsList = $list.children();
 
@@ -146,7 +148,7 @@
           $searchBox = $(
             '<span class="cke_searchbox"><input type="text" placeholder="Search font..."></span>'
           );
-          var $xBtn = $('<a href="javascript:void(0)" id="clear_search" aria-label="Clear search" title="Clear search" class="clear-search"><i class="lineico-close"></i></a>');
+          $xBtn = $('<a href="javascript:void(0)" id="clear_search" aria-label="Clear search" title="Clear search" class="clear-search"><i class="lineico-close"></i></a>');
           $searchBox.find('input').before($xBtn);
           $list.before($searchBox[0]);
           hasSearchBox = true;
