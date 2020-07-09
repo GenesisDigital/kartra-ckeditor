@@ -1,6 +1,6 @@
 {
   "name": "kartra-ckeditor",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "Kartra ckeditor",
   "browser": "dist/ckeditor.js",
   "repository": {
