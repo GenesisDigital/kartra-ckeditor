@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/GenesisDigital/kartra-ckeditor"
   },
+  "dependencies": {
+    "kspectrum": "git+ssh://git@github.com/GenesisDigital/kspectrum-jquery-plugin.git"
+  },
   "author": "Doru Palfi",
   "license": "ISC"
 }
