@@ -82,7 +82,7 @@
       console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
       if (!fontsInitalised) {
-        $(editor).trigger('rebuildList');
+        $(editorInstance).trigger('rebuildList');
         fontsInitalised = true;
       }
     }
