@@ -116,6 +116,7 @@
         this.commit();
       }
       buildListHasRunOnce = true;
+      $(editorInstance).trigger('listBuildFinished');
     }
 
     function changeListStructure() {
@@ -221,9 +222,9 @@
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
-          
+         
           var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
-          addLoadingSpinner();
+          $(editor).bind('listBuildFinished', addLoadingSpinner);
 
           // this.add('null', 'null', 'null');
 
