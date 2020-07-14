@@ -19,7 +19,6 @@
     var changesMade = false;
     var buildListHasRunOnce = false;
     var fontsInitalised = false;
-    var cleanInitialList = true;
     var editorInstance = undefined;
     function getUserFonts() {
       if (!fetchUserFonts) return;
@@ -88,7 +87,7 @@
     }
 
     function buildList() {
-      if (cleanInitialList || (buildListHasRunOnce && changesMade)) {
+      if (buildListHasRunOnce && changesMad)) {
         var ul = $(this._.panel._.iframe.$)
             .contents()
             .find('ul');
@@ -96,7 +95,6 @@
         this._.items = {};
         this._.list._.items = {};
         console.log('5.0. buildList() cleans the items list');
-        cleanInitialList = false;
       }
       var _this = this;
       allFonts.forEach(function(f) {
@@ -121,7 +119,7 @@
         );
       });
       console.log('5.1. buildList() run over allFonts[]');
-      if (cleanInitialList || (buildListHasRunOnce && changesMade)) {
+      if (buildListHasRunOnce && changesMade) {
         this._.committed = 0;
         this.commit();
       }
