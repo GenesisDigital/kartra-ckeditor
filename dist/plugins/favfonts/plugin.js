@@ -220,7 +220,7 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           
-          this.add('null', 'null', 'null');
+          // this.add('null', 'null', 'null');
 
           getUserFonts();
           // rebuildList();
