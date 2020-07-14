@@ -41,8 +41,8 @@ CKEDITOR.plugins.add( 'setmenu', {
 					$('#ckeditor-test-font-size').remove();
 				}
 
-	            var fontMenu = e.editor.ui.get('Font') //The fontMenu
-	                , fontSizeMenu = e.editor.ui.get('FontSize') //the FontSize Menu
+				var fontMenu = e.editor.ui.get('favfonts') || e.editor.ui.get('Font') //The fontMenu
+				    , fontSizeMenu = e.editor.ui.get('FontSize') //the FontSize Menu
 	                , fontSize
 	                ;
 
