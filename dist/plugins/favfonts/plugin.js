@@ -22,7 +22,6 @@
     var editorInstance = undefined;
     function getUserFonts() {
       if (!fetchUserFonts) return;
-      console.log('2. Fetching user fonts');
       $.ajax({
         url: apiRoute + '/get',
         type: 'GET'
@@ -36,7 +35,6 @@
               if (a.font > b.font) return 1;
               return 0;
             });
-            console.log('3. FETCHED');
         combineFonts(userFonts);
       });
     }
@@ -78,12 +76,8 @@
         if (typeof b.id === 'undefined') b.id = 9999;
         return a.id - b.id || a.font.localeCompare(b.font);
       });
-      console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
-      // if (!fontsInitalised) {
-        $(editorInstance).trigger('rebuildList');
-        fontsInitalised = true;
-      // }
+      $(editorInstance).trigger('rebuildList');
     }
 
     function buildList() {
@@ -194,7 +188,6 @@
           }
         });
       }
-      console.log('7. changeListStructure()');
     }
 
     function addCombo(editor) {
@@ -228,9 +221,7 @@
           if (changesMade) {
             $(editor).trigger('rebuildList');
             changesMade = false;
-            console.log('6. onOpen is triggering buildList()');
           }
-          console.log('6.1 onOpen()');
           var _changeListStructure = CKEDITOR.tools.bind(
               changeListStructure,
               this
@@ -260,9 +251,7 @@
               '.cke_searchbox > input'
           )[0];
           searchInput.value = '';
-          console.log('8.0. onClose()');
           if (changesMade) {
-            console.log('8.1. getUserFonts onClose()');
             getUserFonts();
           }
         },
@@ -294,8 +283,6 @@
     }
     return {
       init() {
-        console.log('1. init()');
-        // getUserFonts();
         addPlugin();
       }
     };
