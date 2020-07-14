@@ -18,6 +18,7 @@
     var apiRoute = secureBaseUrl && (secureBaseUrl + '/v2/favouriteFonts');
     var changesMade = false;
     var buildListHasRunOnce = false;
+    var fontsInitalised = false;
     function getUserFonts() {
       if (!fetchUserFonts) return;
       console.log('2. Fetching user fonts');
@@ -78,6 +79,10 @@
       });
       console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
+      if (!fontsInitalised) {
+        $(doc).trigger('rebuildList');
+        fontsInitalised = true;
+      }
     }
 
     function buildList() {
@@ -118,6 +123,10 @@
         this.commit();
       }
       buildListHasRunOnce = true;
+    }
+
+    function buildEmptyList() {
+      this.add(null, 'null', null);
     }
 
     function changeListStructure() {
@@ -210,7 +219,9 @@
         init() {
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
-          rebuildList();
+          buildEmptyList();
+          getUserFonts();
+          // rebuildList();
           $(editor).bind('rebuildList', rebuildList);
         },
 
@@ -284,10 +295,8 @@
     return {
       init() {
         console.log('1. init()');
-        getUserFonts();
-        setTimeout(function() {
-          addPlugin();
-        }, 1000);
+        // getUserFonts();
+        addPlugin();
       }
     };
   }
