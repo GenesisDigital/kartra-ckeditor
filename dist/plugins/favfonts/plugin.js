@@ -88,7 +88,6 @@
         ul.remove();
         this._.items = {};
         this._.list._.items = {};
-        console.log('5.0. buildList() cleans the items list');
       }
       var _this = this;
       allFonts.forEach(function(f) {
@@ -112,7 +111,6 @@
             fontFamily
         );
       });
-      console.log('5.1. buildList() run over allFonts[]');
       if (buildListHasRunOnce && changesMade) {
         this._.committed = 0;
         this.commit();
