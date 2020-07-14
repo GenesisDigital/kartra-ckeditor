@@ -197,7 +197,7 @@
       var hasLoadingSpinner = !!$loadingSpinner.length;
       if (!hasLoadingSpinner) {
         $loadingSpinner = $('<div class="loading_wrapper"><img src="https://d2uolguxr56s4e.cloudfront.net/img/shared/359.GIF"></div>');
-        $list.before($searchBox[0]);
+        $list.before($loadingSpinner[0]);
       }
     }
 
