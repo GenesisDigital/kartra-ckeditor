@@ -19,6 +19,7 @@
     var changesMade = false;
     var buildListHasRunOnce = false;
     var fontsInitalised = false;
+    var cleanInitialList = true;
     function getUserFonts() {
       if (!fetchUserFonts) return;
       console.log('2. Fetching user fonts');
@@ -86,7 +87,7 @@
     }
 
     function buildList() {
-      if (buildListHasRunOnce && changesMade) {
+      if (cleanInitialList || (buildListHasRunOnce && changesMade)) {
         var ul = $(this._.panel._.iframe.$)
             .contents()
             .find('ul');
@@ -94,6 +95,7 @@
         this._.items = {};
         this._.list._.items = {};
         console.log('5.0. buildList() cleans the items list');
+        cleanInitialList = false;
       }
       var _this = this;
       allFonts.forEach(function(f) {
@@ -123,10 +125,6 @@
         this.commit();
       }
       buildListHasRunOnce = true;
-    }
-
-    function buildEmptyList() {
-      this.add(null, 'null', null);
     }
 
     function changeListStructure() {
@@ -219,10 +217,12 @@
         init() {
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
-          buildEmptyList();
+          $(editor).bind('rebuildList', rebuildList);
+          
+          this.add(null, 'null', null);
+
           getUserFonts();
           // rebuildList();
-          $(editor).bind('rebuildList', rebuildList);
         },
 
         onOpen() {
