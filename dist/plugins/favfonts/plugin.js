@@ -87,7 +87,7 @@
     }
 
     function buildList() {
-      if (buildListHasRunOnce && changesMad) {
+      if (buildListHasRunOnce && changesMade) {
         var ul = $(this._.panel._.iframe.$)
             .contents()
             .find('ul');
