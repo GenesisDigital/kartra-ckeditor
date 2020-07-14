@@ -214,6 +214,7 @@
         },
 
         init() {
+          console.log('addcombo().init()')
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
