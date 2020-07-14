@@ -80,10 +80,10 @@
       });
       console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
-      if (!fontsInitalised) {
+      // if (!fontsInitalised) {
         $(editorInstance).trigger('rebuildList');
         fontsInitalised = true;
-      }
+      // }
     }
 
     function buildList() {
