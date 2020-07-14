@@ -78,7 +78,6 @@
       });
       console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
-      addPlugin();
     }
 
     function buildList() {
@@ -286,6 +285,9 @@
       init() {
         console.log('1. init()');
         getUserFonts();
+        setTimeout(function() {
+          addPlugin();
+        }, 1000);
       }
     };
   }
