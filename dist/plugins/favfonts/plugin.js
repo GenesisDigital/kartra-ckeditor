@@ -145,14 +145,6 @@
         $list.parent().find('.no-results').remove();
       };
 
-      $('ul li > a', fontDropdownWrapper).each(function() {
-        var $anchor = $(this);
-        var $li = $anchor.parent();
-        var $label = $('label.heart-icon', $anchor[0]);
-        $anchor.after($label[0]);
-        $li.addClass('favourite_font_li');
-      });
-
       if (!hasSearchBox) {
         $searchBox = $(
             '<span class="cke_searchbox"><input type="text" placeholder="Search font..."></span>'
@@ -162,6 +154,14 @@
         $list.before($searchBox[0]);
         hasSearchBox = true;
       }
+
+      $('ul li > a', fontDropdownWrapper).each(function() {
+        var $anchor = $(this);
+        var $li = $anchor.parent();
+        var $label = $('label.heart-icon', $anchor[0]);
+        $anchor.after($label[0]);
+        $li.addClass('favourite_font_li');
+      });
 
       if (hasSearchBox) {
         $xBtn.off('click').on('click', onClearSearch);
