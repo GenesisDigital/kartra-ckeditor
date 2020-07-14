@@ -1,6 +1,9 @@
 (function() {
   allFonts = [];
   function FavFonts() {
+    window.onload = function() {
+      console.log('FINISHED LOADING');
+    }
     var doc = new CKEDITOR.dom.window(window);
     var jsVars = doc.$.parent.jsVars;
     var appFonts = {
