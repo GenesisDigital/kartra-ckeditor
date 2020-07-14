@@ -186,6 +186,19 @@
           }
         });
       }
+
+      // hideLoadingSpinner();
+    }
+
+    _addLoadingSpinner() {
+      var fontDropdownWrapper = this._.list.element.$;
+      var $list = $('ul', fontDropdownWrapper);
+      var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
+      var hasLoadingSpinner = !!$loadingSpinner.length;
+      if (!hasLoadingSpinner) {
+        $loadingSpinner = $('<div class="loading_wrapper"><img src="https://d2uolguxr56s4e.cloudfront.net/img/shared/359.GIF"></div>');
+        $list.before($searchBox[0]);
+      }
     }
 
     function addCombo(editor) {
@@ -209,6 +222,9 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           
+          var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
+          addLoadingSpinner();
+
           // this.add('null', 'null', 'null');
 
           getUserFonts();
