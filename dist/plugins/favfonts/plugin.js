@@ -190,7 +190,7 @@
       // hideLoadingSpinner();
     }
 
-    _addLoadingSpinner() {
+    function _addLoadingSpinner() {
       var fontDropdownWrapper = this._.list.element.$;
       var $list = $('ul', fontDropdownWrapper);
       var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
