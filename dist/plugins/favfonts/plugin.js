@@ -121,7 +121,7 @@
         );
       });
       console.log('5.1. buildList() run over allFonts[]');
-      if (buildListHasRunOnce & changesMade) {
+      if (cleanInitialList || (buildListHasRunOnce && changesMade)) {
         this._.committed = 0;
         this.commit();
       }
