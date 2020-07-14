@@ -78,6 +78,7 @@
       });
       console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
+      addPlugin();
     }
 
     function buildList() {
@@ -121,7 +122,6 @@
     }
 
     function changeListStructure() {
-      console.log('7. changeListStructure()');
       var fontDropdownWrapper = this._.list.element.$;
       var $searchBox = $(fontDropdownWrapper).find('.cke_searchbox');
       var hasSearchBox = !!$searchBox.length;
@@ -189,6 +189,7 @@
           }
         });
       }
+      console.log('7. changeListStructure()');
     }
 
     function addCombo(editor) {
@@ -220,6 +221,7 @@
             changesMade = false;
             console.log('6. onOpen is triggering buildList()');
           }
+          console.log('6.1 onOpen()');
           var _changeListStructure = CKEDITOR.tools.bind(
               changeListStructure,
               this
@@ -284,7 +286,6 @@
       init() {
         console.log('1. init()');
         getUserFonts();
-        addPlugin();
       }
     };
   }
