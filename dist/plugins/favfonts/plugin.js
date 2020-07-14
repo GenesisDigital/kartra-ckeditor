@@ -20,6 +20,7 @@
     var buildListHasRunOnce = false;
     var fontsInitalised = false;
     var cleanInitialList = true;
+    var editor = undefined;
     function getUserFonts() {
       if (!fetchUserFonts) return;
       console.log('2. Fetching user fonts');
@@ -81,7 +82,7 @@
       console.log('4. Combined fonts. Now ready!')
       allFonts = combinedFonts;
       if (!fontsInitalised) {
-        $(doc).trigger('rebuildList');
+        $(editor).trigger('rebuildList');
         fontsInitalised = true;
       }
     }
@@ -287,6 +288,7 @@
       CKEDITOR.plugins.add('favfonts', {
         requires: 'richcombo',
         init(editor) {
+          editor = editor;
           var config = editor.config;
           addCombo(editor);
         },
