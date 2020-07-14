@@ -20,7 +20,7 @@
     var buildListHasRunOnce = false;
     var fontsInitalised = false;
     var cleanInitialList = true;
-    var editor = undefined;
+    var editorInstance = undefined;
     function getUserFonts() {
       if (!fetchUserFonts) return;
       console.log('2. Fetching user fonts');
@@ -288,7 +288,7 @@
       CKEDITOR.plugins.add('favfonts', {
         requires: 'richcombo',
         init(editor) {
-          editor = editor;
+          editorInstance = editor;
           var config = editor.config;
           addCombo(editor);
         },
