@@ -209,7 +209,7 @@
       var fontDropdownWrapper = this._.list.element.$;
       var $list = $('ul', fontDropdownWrapper);
       var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
-      $loadingSpinner.hide();
+      // $loadingSpinner.hide();
     }
 
     function addCombo(editor) {
