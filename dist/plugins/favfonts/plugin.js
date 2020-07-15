@@ -256,7 +256,7 @@
           addLoadingSpinner();
 
           var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
-          $(editorInstance).bind('hideLoadingSpinner', hideLoadingSpinner);
+          $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
 
           var fontDropdownWrapper = this._.list.element.$;
           $(fontDropdownWrapper).on('click', 'input', function() {
