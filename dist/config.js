@@ -27,7 +27,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline','Strike'] },
             { name: 'paragraph', items : [ 'NumberedList','BulletedList','Blockquote']},
             { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
-            { name: 'colors', items: [ 'colorpicker'] },
+            { name: 'colors', items: [ 'TextColorKspectrum', 'BgColorKspectrum'] },
             { name: 'indent', items: ['Outdent', 'Indent'] },
             { name: 'styles', items: [ 'Font', 'FontSize', 'lineheight' ] },
             { name: 'links', items : [ 'Link','Unlink'] },
