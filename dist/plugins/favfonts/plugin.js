@@ -82,7 +82,6 @@
       allFonts = combinedFonts;
       $(editorInstance).trigger('rebuildList');
       $('.cke_combo__favfonts').addClass('loaded');
-      // $(editorInstance).trigger('hideLoadingSpinner');
     }
 
     function buildList() {
@@ -164,7 +163,6 @@
         $xBtn.off('click').on('click', onClearSearch);
         var $searchInput = $('input', $searchBox[0]);
         $searchInput.off('keyup').on('keyup', function(e) {
-          // if (!this.value) return;
           var searchValue = this.value.toLocaleLowerCase();
           var filteredList = $itemsList.filter(function(index, li) {
             var fontName = li.textContent.toLocaleLowerCase();
@@ -191,27 +189,7 @@
           }
         });
       }
-
-      // hideLoadingSpinner();
     }
-
-    // function _addLoadingSpinner() {
-    //   var fontDropdownWrapper = this._.list.element.$;
-    //   var $list = $('ul', fontDropdownWrapper);
-    //   var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
-    //   var hasLoadingSpinner = !!$loadingSpinner.length;
-    //   if (!hasLoadingSpinner) {
-    //     $loadingSpinner = $('<div class="loading_wrapper"><img src="https://d2uolguxr56s4e.cloudfront.net/img/shared/359.GIF"></div>');
-    //     $list.before($loadingSpinner[0]);
-    //   }
-    // }
-
-    // function _hideLoadingSpinner() {
-    //   var fontDropdownWrapper = this._.list.element.$;
-    //   var $list = $('ul', fontDropdownWrapper);
-    //   var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
-    //   $loadingSpinner.hide();
-    // }
 
     function addCombo(editor) {
       var config = editor.config;
@@ -233,14 +211,7 @@
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
-          
-          // var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
-          //   $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
-
-          // this.add('null', 'null', 'null');
-
           getUserFonts();
-          // rebuildList();
         },
 
         onOpen() {
@@ -281,7 +252,6 @@
           if (changesMade) {
             getUserFonts();
           }
-          $('.cke_combo__favfonts').removeClass('loaded');
         },
 
         onClick(value, e) {
