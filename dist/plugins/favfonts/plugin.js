@@ -241,6 +241,11 @@
         },
 
         onOpen() {
+          if (!allFonts.length) {
+            var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
+            addLoadingSpinner();
+            return;
+          }
           if (changesMade) {
             $(editor).trigger('rebuildList');
             changesMade = false;
@@ -251,9 +256,7 @@
           );
           _changeListStructure();
 
-          var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
-          // $(editor).bind('listBuildFinished', addLoadingSpinner);
-          addLoadingSpinner();
+          
 
           var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
           $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
