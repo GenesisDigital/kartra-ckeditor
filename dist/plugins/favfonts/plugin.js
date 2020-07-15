@@ -195,16 +195,16 @@
       // hideLoadingSpinner();
     }
 
-    function _addLoadingSpinner() {
-      var fontDropdownWrapper = this._.list.element.$;
-      var $list = $('ul', fontDropdownWrapper);
-      var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
-      var hasLoadingSpinner = !!$loadingSpinner.length;
-      if (!hasLoadingSpinner) {
-        $loadingSpinner = $('<div class="loading_wrapper"><img src="https://d2uolguxr56s4e.cloudfront.net/img/shared/359.GIF"></div>');
-        $list.before($loadingSpinner[0]);
-      }
-    }
+    // function _addLoadingSpinner() {
+    //   var fontDropdownWrapper = this._.list.element.$;
+    //   var $list = $('ul', fontDropdownWrapper);
+    //   var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
+    //   var hasLoadingSpinner = !!$loadingSpinner.length;
+    //   if (!hasLoadingSpinner) {
+    //     $loadingSpinner = $('<div class="loading_wrapper"><img src="https://d2uolguxr56s4e.cloudfront.net/img/shared/359.GIF"></div>');
+    //     $list.before($loadingSpinner[0]);
+    //   }
+    // }
 
     // function _hideLoadingSpinner() {
     //   var fontDropdownWrapper = this._.list.element.$;
@@ -281,6 +281,7 @@
           if (changesMade) {
             getUserFonts();
           }
+          $('.cke_combo__favfonts').removeClass('loaded');
         },
 
         onClick(value, e) {

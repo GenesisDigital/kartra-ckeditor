@@ -1460,6 +1460,7 @@ legend.cke_voice_label {
 .cke_combo__favfonts {
     pointer-events: none;
     opacity: 0.5;
+    text-transform: capitalize;
 }
 
 .cke_combo__favfonts.loaded {
