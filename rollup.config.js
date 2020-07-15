@@ -34,7 +34,7 @@ export default [
 				'process.env.NODE_ENV': "'production'",
 			}),
 			sourcemaps(),
-            terser(),
+            // terser(),
 		]
 	},
 	{
@@ -62,7 +62,7 @@ export default [
 				'process.env.NODE_ENV': "'production'",
 			}),
 			sourcemaps(),
-            terser(),
+            // terser(),
 		]
 	}
 ];
