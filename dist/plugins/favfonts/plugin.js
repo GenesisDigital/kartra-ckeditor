@@ -81,6 +81,7 @@
       });
       allFonts = combinedFonts;
       $(editorInstance).trigger('rebuildList');
+      $('cke_combo__favfonts').addClass('loaded');
       // $(editorInstance).trigger('hideLoadingSpinner');
     }
 
