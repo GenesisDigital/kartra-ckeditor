@@ -80,8 +80,9 @@
         return a.id - b.id || a.font.localeCompare(b.font);
       });
       allFonts = combinedFonts;
-      $(editorInstance).trigger('rebuildList');
-      $(editorInstance).trigger('hideLoadingSpinner');
+      // $(editorInstance).trigger('rebuildList');
+      // $(editorInstance).trigger('hideLoadingSpinner');
+      $(editorInstance).trigger('fontsLoaded');
     }
 
     function buildList() {
@@ -122,7 +123,7 @@
       buildListHasRunOnce = true;
     }
 
-    function changeListStructure() {
+    function _changeListStructure() {
       var fontDropdownWrapper = this._.list.element.$;
       var $searchBox = $(fontDropdownWrapper).find('.cke_searchbox');
       var hasSearchBox = !!$searchBox.length;
@@ -209,7 +210,7 @@
       var fontDropdownWrapper = this._.list.element.$;
       var $list = $('ul', fontDropdownWrapper);
       var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
-      // $loadingSpinner.hide();
+      $loadingSpinner.hide();
     }
 
     function addCombo(editor) {
@@ -233,31 +234,37 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           
-          var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
-          $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
+          // var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
+          // $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
 
-          // this.add('null', 'null', 'null');
+          this.add('null', 'null', 'null');
 
-          getUserFonts();
+          // getUserFonts();
           // rebuildList();
         },
 
         onOpen() {
+          var changeListStructure = CKEDITOR.tools.bind(_changeListStructure, this);
+          // $(editor).bind('changeListStructure', changeListStructure);
           if (!allFonts.length) {
             var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
+            var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
+            getUserFonts();
             addLoadingSpinner();
-            
-            return;
+            var onFontsLoaded = function(e) {
+              $(editor).trigger('rebuildList');
+              changeListStructure();
+              hideLoadingSpinner();
+            };
+            $(editor).bind('fontsLoaded', onFontsLoaded);
           }
+
           if (changesMade) {
             $(editor).trigger('rebuildList');
             changesMade = false;
           }
-          var _changeListStructure = CKEDITOR.tools.bind(
-              changeListStructure,
-              this
-          );
-          _changeListStructure();
+          
+          changeListStructure();
 
           var fontDropdownWrapper = this._.list.element.$;
           $(fontDropdownWrapper).on('click', 'input', function() {
