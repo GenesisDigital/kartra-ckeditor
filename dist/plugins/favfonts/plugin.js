@@ -232,7 +232,9 @@
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
-         
+          
+          var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
+          $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
 
           // this.add('null', 'null', 'null');
 
@@ -244,6 +246,7 @@
           if (!allFonts.length) {
             var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
             addLoadingSpinner();
+            
             return;
           }
           if (changesMade) {
@@ -255,11 +258,6 @@
               this
           );
           _changeListStructure();
-
-          
-
-          var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
-          $(editor).bind('hideLoadingSpinner', hideLoadingSpinner);
 
           var fontDropdownWrapper = this._.list.element.$;
           $(fontDropdownWrapper).on('click', 'input', function() {
