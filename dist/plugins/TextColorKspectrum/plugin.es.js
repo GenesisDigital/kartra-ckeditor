@@ -1,29 +1,27 @@
-import 'kspectrum/dist/kspectrum.jquery';
-
 (function() {
-    function BackgroundColorBtn() {
+    function TextColorBtn() {
       var doc = new CKEDITOR.dom.window(window);
       var jsVars = doc.$.parent.jsVars;
   
       function addButton(editor) {
         var config = editor.config;
 
-        editor.addCommand("kspectrum_bg_color", {
+        editor.addCommand("kspectrum_text_color", {
           exec: function(e) {
-            e.insertHtml('bgcolor');
+            e.insertHtml('textcolor');
           }
         });
 
-        editor.ui.addButton('BgColor', {
-          label: "Background Color",
-          command: 'kspectrum_bg_color',
-          toolbar: 'basicstyles',
-          icon: 'bgcolor'
-      });
+        editor.ui.addButton('TextColor', {
+            label: "Text Color",
+            command: 'kspectrum_text_color',
+            toolbar: 'basicstyles',
+            icon: 'textcolor'
+        });
       }
 
       function addPlugin() {
-        CKEDITOR.plugins.add('BgColorKspectrum', {
+        CKEDITOR.plugins.add('TextColorKspectrum', {
           init(editor) {
             addButton(editor);
           },
@@ -35,7 +33,7 @@ import 'kspectrum/dist/kspectrum.jquery';
         }
       };
     }
-    var plugin = new BackgroundColorBtn();
+    var plugin = new TextColorBtn();
     plugin.init();
   })();
   
