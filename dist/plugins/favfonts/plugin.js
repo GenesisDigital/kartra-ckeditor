@@ -81,6 +81,7 @@
       });
       allFonts = combinedFonts;
       $(editorInstance).trigger('rebuildList');
+      $(editorInstance).trigger('hideLoadingSpinner');
     }
 
     function buildList() {
@@ -119,7 +120,6 @@
         this.commit();
       }
       buildListHasRunOnce = true;
-      $(editorInstance).trigger('listBuildFinished');
     }
 
     function changeListStructure() {
@@ -205,6 +205,13 @@
       }
     }
 
+    function _hideLoadingSpinner() {
+      var fontDropdownWrapper = this._.list.element.$;
+      var $list = $('ul', fontDropdownWrapper);
+      var $loadingSpinner = $(fontDropdownWrapper).find('.loading_wrapper');
+      $loadingSpinner.hide();
+    }
+
     function addCombo(editor) {
       var config = editor.config;
       var acfRules = 'span';
@@ -226,8 +233,6 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
          
-          var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
-          $(editor).bind('listBuildFinished', addLoadingSpinner);
 
           // this.add('null', 'null', 'null');
 
@@ -245,6 +250,14 @@
               this
           );
           _changeListStructure();
+
+          var addLoadingSpinner = CKEDITOR.tools.bind(_addLoadingSpinner, this);
+          // $(editor).bind('listBuildFinished', addLoadingSpinner);
+          addLoadingSpinner();
+
+          var hideLoadingSpinner = CKEDITOR.tools.bind(_hideLoadingSpinner, this);
+          $(editorInstance).bind('hideLoadingSpinner', hideLoadingSpinner);
+
           var fontDropdownWrapper = this._.list.element.$;
           $(fontDropdownWrapper).on('click', 'input', function() {
             var $checkbox = $(this);
