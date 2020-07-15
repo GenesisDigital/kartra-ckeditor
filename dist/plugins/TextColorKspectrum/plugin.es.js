@@ -15,7 +15,7 @@
         editor.ui.addButton('TextColor', {
             label: "Text Color",
             command: 'kspectrum_text_color',
-            toolbar: 'basicstyles',
+            toolbar: 'colors',
             icon: 'textcolor'
         });
       }

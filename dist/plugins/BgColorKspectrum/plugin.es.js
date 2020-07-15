@@ -15,7 +15,7 @@
         editor.ui.addButton('BgColor', {
           label: "Background Color",
           command: 'kspectrum_bg_color',
-          toolbar: 'basicstyles',
+          toolbar: 'colors',
           icon: 'bgcolor'
       });
       }
