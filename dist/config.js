@@ -40,7 +40,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
             { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
             { name: 'links', items : [ 'Link','Unlink'] },
-            { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+            { name: 'colors', items: [ 'TextColorKspectrum', 'BgColorKspectrum'] },
             { name: 'styles', items: [ 'Font', 'FontSize', 'lineheight'] }
         ];
 
@@ -49,7 +49,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
         { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { name: 'links', items : [ 'Link','Unlink'] },
-        { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+        { name: 'colors', items: [ 'TextColorKspectrum', 'BgColorKspectrum'] },
         { name: 'styles', items: [ 'Font', 'FontSize', 'lineheight', 'TextShadow', 'Format'] }
     ];
 
