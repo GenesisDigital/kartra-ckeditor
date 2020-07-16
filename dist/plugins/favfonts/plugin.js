@@ -214,6 +214,8 @@
           $(editor).bind('rebuildList', rebuildList);
           if (!fontsInitalised) {
             getUserFonts();
+          } else {
+            $('.cke_combo__favfonts').addClass('loaded');
           }
         },
 
