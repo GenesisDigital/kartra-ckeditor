@@ -78,9 +78,6 @@
       });
       allFonts = combinedFonts;
       $(editorInstance).trigger('rebuildList');
-      if (retryChangeListStructure) {
-        $(editorInstance).trigger('changeListStructure');
-      }
       $('.cke_combo__favfonts').addClass('loaded'); // cke_combo_text
       var labelText = $('.cke_combo__favfonts .cke_combo_text')[0];
       labelText.innerText = labelText.innerText.replace(/"/g,'');
@@ -191,7 +188,6 @@
           }
         });
       }
-      retryChangeListStructure = false;
     }
 
     function addCombo(editor) {
@@ -214,7 +210,6 @@
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
-
           getUserFonts();
         },
 
@@ -227,12 +222,8 @@
               changeListStructure,
               this
           );
-          $(editor).bind('changeListStructure', changeListStructure);
-          if (!buildListHasRunOnce) {
-            retryChangeListStructure = true;
-            return;
-          };
           _changeListStructure();
+
           var fontDropdownWrapper = this._.list.element.$;
           $(fontDropdownWrapper).on('click', 'input', function() {
             var $checkbox = $(this);
