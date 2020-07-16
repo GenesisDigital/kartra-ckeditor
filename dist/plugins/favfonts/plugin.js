@@ -274,7 +274,6 @@
       CKEDITOR.plugins.add('favfonts', {
         requires: 'richcombo',
         init(editor) {
-          console.log('asd');
           editorInstance = editor;
           var config = editor.config;
           addCombo(editor);
