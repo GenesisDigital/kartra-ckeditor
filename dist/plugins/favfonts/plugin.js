@@ -80,6 +80,7 @@
         return a.id - b.id || a.font.localeCompare(b.font);
       });
       allFonts = combinedFonts;
+      fontsInitalised = true;
       $(editorInstance).trigger('rebuildList');
       $('.cke_combo__favfonts').addClass('loaded');
     }
@@ -211,7 +212,9 @@
           this.startGroup('Font Name');
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
-          getUserFonts();
+          if (!fontsInitalised) {
+            getUserFonts();
+          }
         },
 
         onOpen() {
