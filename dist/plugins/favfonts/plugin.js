@@ -82,7 +82,8 @@
       allFonts = combinedFonts;
       $(editorInstance).trigger('rebuildList');
       $('.cke_combo__favfonts').addClass('loaded'); // cke_combo_text
-      $('.cke_combo__favfonts .cke_combo_text')[0].innerText = $('.cke_combo__favfonts .cke_combo_text')[0].innerText.replace(/"/g,'');
+      var labelText = $('.cke_combo__favfonts .cke_combo_text')[0].innerText;
+      labelText = labelText.replace(/"/g,'');
     }
 
     function buildList() {
