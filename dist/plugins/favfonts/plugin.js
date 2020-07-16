@@ -1,9 +1,6 @@
 (function() {
   allFonts = [];
   function FavFonts() {
-    window.onload = function() {
-      console.log('FINISHED LOADING');
-    }
     var doc = new CKEDITOR.dom.window(window);
     var jsVars = doc.$.parent.jsVars;
     var appFonts = {
@@ -267,6 +264,8 @@
           );
           editor.fire('saveSnapshot');
           this.setValue(value);
+          var labelText = $('.cke_combo__favfonts .cke_combo_text')[0];
+          labelText.innerText = labelText.innerText.replace(/"/g,'');
         }
       });
     }
