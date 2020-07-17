@@ -1300,3 +1300,170 @@ legend.cke_voice_label {
     background: url(icons_hidpi.png) no-repeat 0 -1080px !important;
     background-size: 16px !important;
 }
+
+/* CUSTOM CODE FOR CASE 18133 */
+
+@font-face {
+    font-family: 'line-cons';
+    src: url("//d2uolguxr56s4e.cloudfront.net/icons/line-cons.eot?bytcz6");
+    src: url("//d2uolguxr56s4e.cloudfront.net/icons/line-cons.eot?bytcz6#iefix") format("embedded-opentype"), url("//d2uolguxr56s4e.cloudfront.net/icons/line-cons.woff2?bytcz6") format("woff2"), url("//d2uolguxr56s4e.cloudfront.net/icons/line-cons.ttf?bytcz6") format("truetype"), url("//d2uolguxr56s4e.cloudfront.net/icons/line-cons.woff?bytcz6") format("woff"), url("//d2uolguxr56s4e.cloudfront.net/icons/line-cons.svg?bytcz6#line-cons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.cke_panel_listItem.favourite_font_li {
+    position: relative;
+}
+
+.cke_panel_listItem.favourite_font_li a {
+    padding-right: 30px;
+}
+
+.cke_panel_listItem.favourite_font_li label {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.cke_panel_listItem.favourite_font_li label.disabled {
+    cursor: not-allowed;
+}
+
+.cke_panel_listItem.favourite_font_li label input {
+    display: none;
+}
+
+.cke_panel_listItem.favourite_font_li label small:before {
+    transition: all 0.3s ease-in-out;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    
+    
+    content: "";
+    /* content: "/e983"; */
+    transition: all 0.3s ease-in;
+    font-family: "line-cons";
+    speak: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1;
+    z-index: 1;
+    
+}
+
+.cke_panel_listItem.favourite_font_li label input:checked + small:before {
+    content: "";
+    /* content: "/e984"; */
+    color: #ff00a2;
+}
+
+.cke_searchbox {
+    padding: 3px;
+    display: block;
+    position: relative;
+}
+
+.cke_searchbox ~ .no-results{
+    padding: 10px 3px;
+    display: block;
+    font-family: "Lato", "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.cke_searchbox #clear_search{
+    transition: all 0.3s ease-in;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.cke_searchbox #clear_search,
+.cke_searchbox #clear_search:focus
+{
+    color: #ccc;
+    text-decoration: none;
+}
+
+.cke_searchbox #clear_search:hover,
+.cke_searchbox #clear_search:focus:hover{
+    color: #f36a6a;
+    text-decoration: none;
+}
+
+.cke_searchbox #clear_search > i:before{
+    font-family: "line-cons";
+    speak: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 14px;
+    content: "";
+}
+
+.cke_searchbox > input {
+    border-radius: 3px;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 9px 12px 9px 38px;
+    font-family: "Lato", "Roboto", "sans serif";
+    font-weight: 400;
+    color: #000;
+    font-size: 13px;
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    outline: none !important;
+    resize: none;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.cke_searchbox > input:focus {
+    box-shadow: none;
+    background: #fff;
+    border-color: #27bdde;
+    outline: none !important;
+}
+
+.cke_searchbox > input::placeholder{
+    font-family: "Lato", "Roboto", "sans serif";
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.cke_panel_block{
+    outline: none;
+}
+
+.cke_combo__favfonts {
+    pointer-events: none;
+    opacity: 0.5;
+    text-transform: capitalize;
+}
+
+.cke_combo__favfonts.loaded {
+    pointer-events: all;
+    opacity: 1;
+}
