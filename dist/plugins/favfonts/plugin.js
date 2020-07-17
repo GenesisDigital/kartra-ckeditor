@@ -21,7 +21,7 @@
     }
 
     function addPlugin() {
-      CKEDITOR.plugins.add('BgColorKspectrum', {
+      CKEDITOR.plugins.add('favfonts', {
         init(editor) {
           addButton(editor);
         },
