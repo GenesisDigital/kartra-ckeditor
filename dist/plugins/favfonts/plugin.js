@@ -203,7 +203,7 @@
         panel: {
           css: [CKEDITOR.skin.getPath('editor')].concat(config.contentsCss),
           multiSelect: false,
-          attributes: { 'aria-label': '' }
+          attributes: { 'aria-label': "Font" }
         },
 
         init() {
@@ -211,6 +211,7 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           getUserFonts();
+          debugger;
         },
 
         onOpen() {
