@@ -245,7 +245,9 @@
           var searchInput = $(fontDropdownWrapper).find(
               '.cke_searchbox > input'
           )[0];
-          searchInput.value = '';
+          if (searchInput) {
+            searchInput.value = '';
+          }
           if (changesMade) {
             getUserFonts();
           }
