@@ -211,25 +211,24 @@
           getUserFonts();
 
           var _this = this;
-          editor.on("panelHide", function() {
-            $(_this._.list.element.$).empty();
-            _this._.items = {};
-            _this._.list._.items = {};
-          });
+          // editor.on("panelHide", function() {
+          //   $(_this._.list.element.$).empty();
+          //   _this._.items = {};
+          //   _this._.list._.items = {};
+          // });
 
-          editor.on("panelShow", function() {
-            if (changesMade) {
-                $(editor).trigger('rebuildList');
-                changesMade = false;
-            }
-          });
+          // editor.on("panelShow", function() {
+          //   $(_this._.list.element.$).empty();
+          //   _this._.items = {};
+          //   _this._.list._.items = {};
+          // });
         },
 
         onOpen() {
-          // if (changesMade) {
-          //   $(editor).trigger('rebuildList');
-          //   changesMade = false;
-          // }
+          if (changesMade) {
+            $(editor).trigger('rebuildList');
+            changesMade = false;
+          }
           var _changeListStructure = CKEDITOR.tools.bind(
               changeListStructure,
               this
