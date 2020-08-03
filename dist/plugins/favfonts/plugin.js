@@ -84,7 +84,7 @@
     function buildList() {
       if (buildListHasRunOnce && changesMade) {
         var iframe = $(this._.panel._.iframe.$);
-        if (iframe.contentDocument || iframe.contentWindow) {
+        if (iframe[0].contentDocument || iframe[0].contentWindow) {
           iframe.contents().find('ul').remove();
         }
         this._.items = {};
