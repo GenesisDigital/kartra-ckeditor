@@ -87,7 +87,7 @@
         if (iframe.contentWindow) {
           iframe.contents().find('ul').remove();
         }
-        // this._.items = {};
+        this._.items = {};
         this._.list._.items = {};
       }
       var _this = this;
@@ -251,7 +251,7 @@
           if (changesMade) {
             getUserFonts();
           }
-          buildListHasRunOnce = false;
+          // buildListHasRunOnce = false;
         },
 
         onClick(value, e) {
