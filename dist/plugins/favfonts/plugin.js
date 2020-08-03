@@ -88,7 +88,7 @@
         var ul = iframe.contents().find('ul');
         ul.remove();
         // this._.items = {};
-        this._.list._.items = {};
+        // this._.list._.items = {};
       }
       var _this = this;
       allFonts.forEach(function(f) {
