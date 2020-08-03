@@ -20,6 +20,7 @@
     var buildListHasRunOnce = false;
     var fontsInitalised = false;
     var editorInstance = undefined;
+    var dropdownLiIds = {};
     function getUserFonts() {
       if (!fetchUserFonts) return;
       $.ajax({
@@ -149,11 +150,21 @@
       }
 
       $('ul li > a', fontDropdownWrapper).each(function() {
+
         var $anchor = $(this);
+        var fontName = $anchor.attr('title');
         var $li = $anchor.parent();
+        var fontId = $li.attr('id');
+
         var $label = $('label.heart-icon', $anchor[0]);
         $anchor.after($label[0]);
         $li.addClass('favourite_font_li');
+
+        if (!buildListHasRunOnce) {
+          dropdownLiIds[fontName] = fontId;
+        } else {
+          $li.attr('id', dropdownLiIds[fontName]);
+        }
       });
 
       if (hasSearchBox) {
