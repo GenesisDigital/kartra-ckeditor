@@ -251,6 +251,7 @@
           if (changesMade) {
             getUserFonts();
           }
+          buildListHasRunOnce = false;
         },
 
         onClick(value, e) {
