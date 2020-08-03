@@ -161,14 +161,14 @@
         $anchor.after($label[0]);
         $li.addClass('favourite_font_li');
 
-        if (!idsSet) {
-          dropdownLiIds[fontName] = fontId;
-        } else {
-          $li.attr('id', dropdownLiIds[fontName]);
-        }
+        // if (!idsSet) {
+        //   dropdownLiIds[fontName] = fontId;
+        // } else {
+        //   $li.attr('id', dropdownLiIds[fontName]);
+        // }
       });
 
-      idsSet = true;
+      // idsSet = true;
 
       if (hasSearchBox) {
         $xBtn.off('click').on('click', onClearSearch);
