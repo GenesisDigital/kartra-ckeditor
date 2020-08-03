@@ -84,11 +84,11 @@
     function buildList() {
       if (buildListHasRunOnce && changesMade) {
         var iframe = $(this._.panel._.iframe.$);
-        if (!iframe.contentWindow) return;
-        var ul = iframe.contents().find('ul');
-        ul.remove();
+        if (iframe.contentWindow) {
+          iframe.contents().find('ul').remove();
+        }
         // this._.items = {};
-        // this._.list._.items = {};
+        this._.list._.items = {};
       }
       var _this = this;
       allFonts.forEach(function(f) {
