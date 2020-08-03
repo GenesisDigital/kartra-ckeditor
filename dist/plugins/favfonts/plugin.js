@@ -209,6 +209,13 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           getUserFonts();
+
+          var _this = this;
+          editor.on("panelHide", function() {
+            $(_this._.list.element.$).empty();
+            _this._.items = {};
+            _this._.list._.items = {};
+          });
         },
 
         onOpen() {
@@ -252,12 +259,6 @@
             // getUserFonts();
           }
         },
-
-        editor.on("panelHide", function(){
-          $(_this._.list.element.$).empty();
-          _this._.items = {};
-          _this._.list._.items = {};
-        });
 
         onClick(value, e) {
           editor.focus();
