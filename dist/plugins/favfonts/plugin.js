@@ -113,8 +113,8 @@
         );
       });
       if (buildListHasRunOnce && changesMade) {
-        // this._.committed = 0;
-        // this.commit();
+        this._.committed = 0;
+        this.commit();
       }
       buildListHasRunOnce = true;
     }
