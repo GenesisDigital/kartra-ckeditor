@@ -149,6 +149,8 @@
         hasSearchBox = true;
       }
 
+      var idsSet = false;
+
       $('ul li > a', fontDropdownWrapper).each(function() {
 
         var $anchor = $(this);
@@ -160,12 +162,14 @@
         $anchor.after($label[0]);
         $li.addClass('favourite_font_li');
 
-        if (!buildListHasRunOnce) {
+        if (!idsSet) {
           dropdownLiIds[fontName] = fontId;
         } else {
           $li.attr('id', dropdownLiIds[fontName]);
         }
       });
+
+      idsSet = true;
 
       if (hasSearchBox) {
         $xBtn.off('click').on('click', onClearSearch);
