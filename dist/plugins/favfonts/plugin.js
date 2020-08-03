@@ -216,13 +216,20 @@
             _this._.items = {};
             _this._.list._.items = {};
           });
+
+          editor.on("panelShow", function() {
+            if (changesMade) {
+                $(editor).trigger('rebuildList');
+                changesMade = false;
+            }
+          });
         },
 
         onOpen() {
-          if (changesMade) {
-            $(editor).trigger('rebuildList');
-            changesMade = false;
-          }
+          // if (changesMade) {
+          //   $(editor).trigger('rebuildList');
+          //   changesMade = false;
+          // }
           var _changeListStructure = CKEDITOR.tools.bind(
               changeListStructure,
               this
