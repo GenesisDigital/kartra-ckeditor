@@ -87,8 +87,8 @@
         if (iframe[0].contentDocument || iframe[0].contentWindow) {
           iframe.contents().find('ul').remove();
         }
-        // this._.items = {};
-        // this._.list._.items = {};
+        this._.items = {};
+        this._.list._.items = {};
       }
       var _this = this;
       allFonts.forEach(function(f) {
@@ -249,7 +249,7 @@
             searchInput.value = '';
           }
           if (changesMade) {
-            // getUserFonts();
+            getUserFonts();
           }
         },
 
