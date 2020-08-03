@@ -249,7 +249,7 @@
             searchInput.value = '';
           }
           if (changesMade) {
-            getUserFonts();
+            // getUserFonts();
           }
           // buildListHasRunOnce = false;
         },
