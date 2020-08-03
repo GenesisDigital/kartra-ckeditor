@@ -84,9 +84,9 @@
     function buildList() {
       if (buildListHasRunOnce && changesMade) {
         var iframe = $(this._.panel._.iframe.$);
-        if (iframe.contentWindow) {
+        // if (iframe.contentWindow) {
           iframe.contents().find('ul').remove();
-        }
+        // }
         this._.items = {};
         this._.list._.items = {};
       }
