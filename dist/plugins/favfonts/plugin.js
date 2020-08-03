@@ -211,7 +211,6 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           getUserFonts();
-          debugger;
         },
 
         onOpen() {
