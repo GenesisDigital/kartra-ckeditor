@@ -87,7 +87,7 @@
         if (iframe[0].contentDocument || iframe[0].contentWindow) {
           iframe.contents().find('ul').remove();
         }
-        this._.items = {};
+        // this._.items = {};
         this._.list._.items = {};
       }
       var _this = this;
@@ -209,19 +209,6 @@
           var rebuildList = CKEDITOR.tools.bind(buildList, this);
           $(editor).bind('rebuildList', rebuildList);
           getUserFonts();
-
-          var _this = this;
-          // editor.on("panelHide", function() {
-          //   $(_this._.list.element.$).empty();
-          //   _this._.items = {};
-          //   _this._.list._.items = {};
-          // });
-
-          // editor.on("panelShow", function() {
-          //   $(_this._.list.element.$).empty();
-          //   _this._.items = {};
-          //   _this._.list._.items = {};
-          // });
         },
 
         onOpen() {
