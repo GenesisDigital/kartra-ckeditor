@@ -85,11 +85,11 @@
 
     function buildList() {
       if (buildListHasRunOnce && changesMade) {
-        var ul = $(this._.panel._.iframe.$)
-            .contents()
-            .find('ul');
+        var iframe = $(this._.panel._.iframe.$);
+        if (!iframe.contentWindow) return;
+        var ul = iframe.contents().find('ul');
         ul.remove();
-        this._.items = {};
+        // this._.items = {};
         this._.list._.items = {};
       }
       var _this = this;
