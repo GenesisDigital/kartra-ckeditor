@@ -251,8 +251,13 @@
           if (changesMade) {
             // getUserFonts();
           }
-          // buildListHasRunOnce = false;
         },
+
+        editor.on("panelHide", function(){
+          $(_this._.list.element.$).empty();
+          _this._.items = {};
+          _this._.list._.items = {};
+        });
 
         onClick(value, e) {
           editor.focus();
