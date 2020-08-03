@@ -20,6 +20,7 @@
     var buildListHasRunOnce = false;
     var fontsInitalised = false;
     var editorInstance = undefined;
+    var idsSet = false;
     var dropdownLiIds = {};
     function getUserFonts() {
       if (!fetchUserFonts) return;
@@ -148,8 +149,6 @@
         $list.before($searchBox[0]);
         hasSearchBox = true;
       }
-
-      var idsSet = false;
 
       $('ul li > a', fontDropdownWrapper).each(function() {
 
