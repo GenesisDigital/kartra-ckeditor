@@ -45,9 +45,7 @@
         url: apiRoute + '/create',
         type: 'POST',
         data: { font_name: name }
-      }).done(function(data) {
-        getUserFonts();
-      });
+      }).done(function(data) {});
     }
     function deleteFont(id) {
       $.ajax({
