@@ -14893,7 +14893,8 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
                         a = this._.items[a];
                         var b = this.element.getDocument().getById(a);
                         b && b.addClass("cke_selected");
-                        this.element.getDocument().getById(a + "_option").setAttribute("aria-selected", !0);
+                        var el = this.element.getDocument().getById(a + "_option");
+                        el && el.setAttribute("aria-selected", !0);
                         this.onMark && this.onMark(b)
                     },
                     unmark: function(a) {
