@@ -14931,8 +14931,8 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
                                     this._.focusIndex = d;
                                     break
                                 }
-                            } else this.element.focus();
-                        }
+                            } 
+                        } else this.element.focus();
                             
                         c && setTimeout(function() {
                             c.focus()
