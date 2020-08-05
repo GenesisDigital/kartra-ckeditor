@@ -14924,13 +14924,16 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
                         this._.focusIndex = -1;
                         var b = this.element.getElementsByTag("a"),
                             c, d = -1;
-                        if (a)
-                            for (c = this.element.getDocument().getById(this._.items[a]).getFirst(); a = b.getItem(++d);) {
+                        if (a) {
+                            var el = this.element.getDocument().getById(this._.items[a]);
+                            for (c = el && el.getFirst(); a = b.getItem(++d);) {
                                 if (a.equals(c)) {
                                     this._.focusIndex = d;
                                     break
                                 }
                             } else this.element.focus();
+                        }
+                            
                         c && setTimeout(function() {
                             c.focus()
                         }, 0)
