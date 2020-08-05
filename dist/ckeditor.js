@@ -14885,7 +14885,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
                             b = this._.groups,
                             c = this.element.getDocument(),
                             d;
-                        for (d in a) c.getById(a[d]).setStyle("display", "");
+                        for (d in a) c.getById(a[d]) && c.getById(a[d]).setStyle("display", "");
                         for (var e in b) a = c.getById(b[e]), d = a.getNext(), a.setStyle("display", ""), d && "ul" == d.getName() && d.setStyle("display", "")
                     },
                     mark: function(a) {
