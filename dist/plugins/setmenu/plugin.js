@@ -41,13 +41,13 @@ CKEDITOR.plugins.add( 'setmenu', {
 					$('#ckeditor-test-font-size').remove();
 				}
 
-	            var fontMenu = e.editor.ui.get('Font') //The fontMenu
+	            var fontMenu = e.editor.ui.get('favfonts') || e.editor.ui.get('Font') //The fontMenu
 	                , fontSizeMenu = e.editor.ui.get('FontSize') //the FontSize Menu
 	                , fontSize
 	                ;
 
 	            if (fontMenu.getValue() == '' && $element.css("font-family") !== undefined) {
-	                setRichCombo(e.editor,fontMenu,$element.css("font-family").replace("'","").split(',')[0]);
+					setRichCombo(e.editor,fontMenu,$element.css("font-family").replace("'","").replace(/"/g,'').split(',')[0]);
 	            }
 	            fontSize = (parseFloat($element.css("font-size"))).toFixed(0);
 	            if (fontSizeMenu.getValue() == '') {
