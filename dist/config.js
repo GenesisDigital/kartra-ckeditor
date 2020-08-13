@@ -67,7 +67,7 @@ CKEDITOR.editorConfig = function( config ) {
     
     //config.extraPlugins = 'uploadimage';
 //  config.uploadUrl = '/upload/upload_to_vendor/image';
-    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colordialog,textShadow,mergestyles,setmenu';
+    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colordialog,textShadow,mergestyles,setmenu,favfonts';
     config.textShadow_minValue = -50;
     config.textShadow_maxValue = 50;
     config.filebrowserUploadUrl = '/upload/upload_to_vendor/image';
