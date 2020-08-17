@@ -50,7 +50,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
         { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { name: 'links', items : [ 'Link','Unlink'] },
-        { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+        // { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
         { name: 'styles', items: [ 'favfonts', 'FontSize', 'lineheight', 'TextShadow', 'Format'] } // we leave favfonts here because we want it in Page Builder
     ];
 
