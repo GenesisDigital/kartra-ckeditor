@@ -12,11 +12,14 @@
         }
       });
 
-      editor.ui.addButton('BgColor', {
-        label: "Background Color",
-        command: 'kspectrum_bg_color',
-        icon: CKEDITOR.plugins.getPath('textShadow') + 'icons/textShadow.png'
-      });
+      for(var i in CKEDITOR.instances){
+        CKEDITOR.instances[i].ui.addButton('BgColor', {
+          label: "Background Color",
+          command: 'kspectrum_bg_color',
+          toolbar: 'colors',
+          icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16'
+        });
+      } 
     }
 
     function addPlugin() {
