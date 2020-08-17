@@ -207,7 +207,8 @@
 				editor.ui.addButton( 'JustifyLeft', {
 					label: editor.lang.justify.left,
 					command: 'justifyleft',
-					toolbar: 'align,10'
+					toolbar: 'align,10',
+					icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16'
 				} );
 				editor.ui.addButton( 'JustifyCenter', {
 					label: editor.lang.justify.center,
