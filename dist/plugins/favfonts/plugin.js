@@ -13,10 +13,9 @@
       });
 
       for(var i in CKEDITOR.instances){
-        CKEDITOR.instances[i].ui.addButton('BgColor', {
+        CKEDITOR.instances[i].ui.addButton('BgColorX', {
           label: "Background Color",
           command: 'kspectrum_bg_color',
-          toolbar: 'colors',
           icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16'
         });
       } 
