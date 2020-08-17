@@ -15,7 +15,7 @@
       editor.ui.addButton('BgColor', {
         label: "Background Color",
         command: 'kspectrum_bg_color',
-        icon: 'bgcolor'
+        icon: CKEDITOR.plugins.getPath('textShadow') + 'icons/textShadow.png'
       });
     }
 
