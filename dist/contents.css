@@ -179,13 +179,20 @@ body {
     margin-bottom: 15px !important;
 }
 
-
 .cke_em_builder {
-    font-size: 16px;
-    background: red;
+    font-size: 1em;
 }
 
-.cke_em_builder p{
+.cke_email_builder.cke_editable blockquote{
+    font-size: inherit;
+}
+
+.cke_email_builder.cke_editable blockquote p,
+.cke_email_builder.cke_editable ul,
+.cke_email_builder.cke_editable ol,
+.cke_email_builder.cke_editable table,
+.cke_email_builder.cke_editable ul > li,
+.cke_email_builder.cke_editable ol > li {
     font-size: 1em;
 }
 
