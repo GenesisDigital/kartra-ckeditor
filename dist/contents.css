@@ -180,20 +180,23 @@ body {
 }
 
 .cke_em_builder {
-    font-size: 1em;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
-.cke_email_builder.cke_editable blockquote{
-    font-size: inherit;
-}
-
-.cke_email_builder.cke_editable blockquote p,
-.cke_email_builder.cke_editable ul,
-.cke_email_builder.cke_editable ol,
-.cke_email_builder.cke_editable table,
-.cke_email_builder.cke_editable ul > li,
-.cke_email_builder.cke_editable ol > li {
+.cke_em_builder.cke_editable blockquote{
     font-size: 1em;
+    line-height: 1.4em;
+}
+.cke_em_builder.cke_editable p,
+.cke_em_builder.cke_editable blockquote p,
+.cke_em_builder.cke_editable ul,
+.cke_em_builder.cke_editable ol,
+.cke_em_builder.cke_editable table,
+.cke_em_builder.cke_editable ul > li,
+.cke_em_builder.cke_editable ol > li {
+    font-size: 1em;
+    line-height: 1.4em;
 }
 
 /*  LATO LIGHT */
