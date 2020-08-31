@@ -7,10 +7,13 @@ CKEDITOR.plugins.add('favfonts', {
           editor.insertHtml( 'The current date and time is: <em>' + now.toString() + '</em>' );
       }
     });
-    editor.ui.addButton( 'Timestamp', {
-        label: 'Insert Timestamp',
-        command: 'insertTimestamp',
-        toolbar: 'Pages'
-    });
   },
 });
+
+for(var i in CKEDITOR.instances){
+    CKEDITOR.instances[i].ui.addButton( 'Timestamp', {
+      label: 'Insert Timestamp',
+      command: 'insertTimestamp',
+      icon    : CKEDITOR.plugins.getPath('textShadow') + 'icons/textShadow.png'
+    });
+}
