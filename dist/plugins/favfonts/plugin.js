@@ -10,7 +10,7 @@ CKEDITOR.plugins.add('favfonts', {
     editor.ui.addButton( 'Timestamp', {
         label: 'Insert Timestamp',
         command: 'insertTimestamp',
-        toolbar: 'basicstyles'
+        toolbar: 'Pages'
     });
   },
 });
