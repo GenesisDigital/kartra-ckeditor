@@ -31,7 +31,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'indent', items: ['Outdent', 'Indent'] },
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule'] },
-            { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] }
+            { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font', 'favfonts' ] }
         ];
 
     config.toolbar_inline =
@@ -40,18 +40,18 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
             { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
             { name: 'links', items : [ 'Link','Unlink'] },
-            { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+            { name: 'colors', items: [ 'TextColor' ,'BGColor', 'favfonts'] },
         ];
 
         
 
     config.toolbar_Pages = [
-        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'textShadow', 'Bold', 'Italic', 'Underline','Strike', 'favfonts'] },
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'textShadow', 'Bold', 'Italic', 'Underline','Strike'] },
         { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
         { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { name: 'links', items : [ 'Link','Unlink'] },
         { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
-        { name: 'styles', items: [ 'Font', 'FontSize', 'lineheight', 'TextShadow', 'Format'] } // we leave favfonts here because we want it in Page Builder
+        { name: 'styles', items: [ 'Font', 'FontSize', 'lineheight', 'TextShadow', 'Format', 'favfonts'] } // we leave favfonts here because we want it in Page Builder
     ];
 
     config.toolbar = 'basic';

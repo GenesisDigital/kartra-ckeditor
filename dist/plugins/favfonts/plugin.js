@@ -1,5 +1,5 @@
 CKEDITOR.plugins.add('favfonts', {
-  icons: 'timestamp',
+  icons: 'bold',
   init(editor) {
     editor.addCommand( 'insertTimestamp', {
       exec: function( editor ) {
@@ -14,6 +14,6 @@ for(var i in CKEDITOR.instances){
     CKEDITOR.instances[i].ui.addButton( 'Timestamp', {
       label: 'Insert Timestamp',
       command: 'insertTimestamp',
-      icon    : CKEDITOR.plugins.getPath('textShadow') + 'icons/textShadow.png'
+      icon    : 'bold'
     });
 }
