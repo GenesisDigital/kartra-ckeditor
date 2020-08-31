@@ -13,4 +13,4 @@ CKEDITOR.plugins.add('favfonts', {
         toolbar: 'insert'
     });
   },
-}
+});
