@@ -1,5 +1,4 @@
 (function() {
-  allFonts = [];
   function FavFonts() {
     function addButton(editor) {
       editor.addCommand( 'insertTimestamp', {
