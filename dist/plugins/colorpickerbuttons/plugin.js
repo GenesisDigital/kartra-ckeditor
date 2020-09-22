@@ -6,9 +6,12 @@
         icons: 'bgpickercolor,textpickercolor',
         hidpi: true,
         init: function(editor) {
-            var config = editor.config;
+            var config = editor.config,
+                doc = new CKEDITOR.dom.window(window),
+                jsVars = doc.$.parent.jsVars;
 
-            console.log('aaa');
+//            console.log(doc);
+//            console.log(jsVars);
 
             if (!CKEDITOR.env.hc) {
                 addButton({
@@ -93,7 +96,7 @@
                     commandName = options['commandName'],
                     contentTransformations = options.contentTransformations || {},
                     style = new CKEDITOR.style(config['colorPickerButton_' + type + 'Style']),
-                    colorBoxId = CKEDITOR.tools.getNextId() + '_colorPickerBox',
+//                    colorBoxId = CKEDITOR.tools.getNextId() + '_colorPickerBox',
                     colorData = { type: type },
                     defaultColorStyle = new CKEDITOR.style(config['colorPickerButton_' + type + 'Style'], { color: 'inherit' }),
 //                    clickFn = createClickFunction(),
@@ -123,12 +126,15 @@
                     },
 
                     refresh: function(editor, path) {
-                        if (!defaultColorStyle.checkApplicable(path, editor, editor.activeFilter)) {
+//                        if (!defaultColorStyle.checkApplicable(path, editor, editor.activeFilter)) {
+//                            this.setState(CKEDITOR.TRISTATE_DISABLED);
+//                        } else if (defaultColorStyle.checkActive(path, editor)) {
+//                            this.setState(CKEDITOR.TRISTATE_ON);
+//                        } else {
+//                            this.setState(CKEDITOR.TRISTATE_OFF);
+//                        }
+                        if (!editor.activeFilter.check(style)) {
                             this.setState(CKEDITOR.TRISTATE_DISABLED);
-                        } else if (defaultColorStyle.checkActive(path, editor)) {
-                            this.setState(CKEDITOR.TRISTATE_ON);
-                        } else {
-                            this.setState(CKEDITOR.TRISTATE_OFF);
                         }
                     }
                 });
@@ -138,6 +144,9 @@
                     title: title,
                     command: commandName,
                     editorFocus: 0,
+                    modes: {
+                        wysiwyg: 1
+                    },
                     toolbar: 'colors,' + order,
                     allowedContent: style,
                     requiredContent: style,
@@ -166,10 +175,7 @@
                         panelBlock = block;
                         block.autoSize = true;
                         block.element.addClass('cke_colorpickerblock');
-                        block.element.setHtml(
-                            '<p>HTML content goes here</p>'
-//                            renderColors(colorBoxId, clickFn, history ? history.getLength() : 0 )
-                        );
+                        block.element.setHtml(renderColorPicker(block));
 
                         block.element.getDocument().getBody().setStyle( 'overflow', 'hidden' );
 
@@ -244,16 +250,55 @@
 
                             colorData.selectionColor = finalColor ? '#' + finalColor : '';
 
-                            console.log(finalColor);
+//                            console.log(finalColor);
 
 //                            selectColor(panelBlock, finalColor);
                         }
 
-                        console.log(automaticColor);
+//                        console.log(automaticColor);
 
                         return automaticColor;
                     },
                 });
+            }
+
+            function renderColorPicker(block) {
+//                css/new/css/ckeditor_color_picker.css
+
+//                CKEDITOR.document.appendStyleSheet('css/new/css/ckeditor_color_picker.css');
+
+                var scriptJquery = document.createElement('script'),
+                    doc = block.element.getDocument(),
+                    head = doc.$.head,
+                    output = [];
+
+                scriptJquery.src = '/js/node_modules/kartra-jquery/jquery-1.10.2/jquery-1.10.2.min.js';
+                scriptJquery.onload = function () {
+                    var scriptKspectrum = document.createElement('script');
+
+                    scriptKspectrum.src = '/js/node_modules/kspectrum/dist/kspectrum.jquery.js';
+
+                    scriptKspectrum.onload = function () {
+                        var colorPaletteInputs = block.element.find('.js_ckeditor_colorpalette_input');
+
+                        console.log(colorPaletteInputs.$[0].ownerDocument)
+
+                        $(colorPaletteInputs.$[0]).kspectrum({
+                            spectrumOptions: {
+                                showInput: false,
+                                showAlpha: false
+                            }
+                        });
+                    };
+
+                    head.appendChild(scriptKspectrum);
+                };
+
+                head.appendChild(scriptJquery);
+
+                output.push('<div class="js_ckeditor_colorpalette"><input class="js_ckeditor_colorpalette_input" /></div>' );
+
+                return output.join('');
             }
 
             /*
