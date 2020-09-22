@@ -45,11 +45,11 @@ CKEDITOR.plugins.add( 'setmenu', {
 	                , fontSizeMenu = e.editor.ui.get('FontSize') //the FontSize Menu
 	                , fontSize
 	                ;
-				if (fontMenu) {
-					if (fontMenu.getValue() == '' && $element.css("font-family") !== undefined) {
-						setRichCombo(e.editor, fontMenu, $element.css("font-family").replace("'", "").replace(/"/g, '').split(',')[0]);
-					}
-				}
+
+                if (fontMenu.getValue() == '' && $element.css("font-family") !== undefined) {
+                    setRichCombo(e.editor, fontMenu, $element.css("font-family").replace("'", "").replace(/"/g, '').split(',')[0]);
+                }
+
 	            fontSize = (parseFloat($element.css("font-size"))).toFixed(0);
 	            if (fontSizeMenu.getValue() == '') {
 

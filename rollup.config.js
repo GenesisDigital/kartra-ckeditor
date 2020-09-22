@@ -10,10 +10,10 @@ import pkg from './package.json';
 export default [
 	// browser-friendly UMD build
 	{
-		input: 'dist/plugins/BgColorKspectrum/plugin.es.js',
+		input: 'dist/plugins/bgcolorkspectrum/plugin.es.js',
 		output: {
-			name: 'BgColorKspectrum',
-			file: 'dist/plugins/BgColorKspectrum/plugin.js',
+			name: 'bgcolorkspectrum',
+			file: 'dist/plugins/bgcolorkspectrum/plugin.js',
 			format: 'iife',
 			sourcemap: true,
 			globals: {
@@ -38,10 +38,10 @@ export default [
 		]
 	},
 	{
-		input: 'dist/plugins/TextColorKspectrum/plugin.es.js',
+		input: 'dist/plugins/textcolorkspectrum/plugin.es.js',
 		output: {
-			name: 'TextColorKspectrum',
-			file: 'dist/plugins/TextColorKspectrum/plugin.js',
+			name: 'textcolorkspectrum',
+			file: 'dist/plugins/textcolorkspectrum/plugin.js',
 			format: 'iife',
 			sourcemap: true,
 			globals: {

@@ -27,11 +27,11 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline','Strike'] },
             { name: 'paragraph', items : [ 'NumberedList','BulletedList','Blockquote']},
             { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
-            { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
-            { name: 'indent', items: ['Outdent', 'Indent'] },
+            { name: 'colors', items: [ 'TextPickerColor', 'BGPickerColor' ] },
+            { name: 'indent', items: [ 'Outdent', 'Indent'] },
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule'] },
-            { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font', 'favfonts' ] }
+            { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font'] }
         ];
 
     config.toolbar_inline =
@@ -40,7 +40,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
             { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
             { name: 'links', items : [ 'Link','Unlink'] },
-            { name: 'colors', items: [ 'TextColor' ,'BGColor', 'favfonts'] },
+            { name: 'colors', items: [ 'TextPickerColor', 'BGPickerColor' ] },
         ];
 
 
@@ -50,7 +50,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'paragraph', items : [ 'NumberedList','BulletedList']},
         { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { name: 'links', items : [ 'Link','Unlink'] },
-        { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+        { name: 'colors', items: [ 'TextPickerColor', 'BGPickerColor'] },
         { name: 'styles', items: [ 'favfonts', 'FontSize', 'lineheight', 'TextShadow', 'Format'] } // we leave favfonts here because we want it in Page Builder
     ];
 
@@ -67,7 +67,7 @@ CKEDITOR.editorConfig = function( config ) {
     
     //config.extraPlugins = 'uploadimage';
 //  config.uploadUrl = '/upload/upload_to_vendor/image';
-    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colordialog,textShadow,mergestyles,setmenu,favfonts';
+    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colordialog,textShadow,mergestyles,setmenu,colorpickerbuttons';
     config.textShadow_minValue = -50;
     config.textShadow_maxValue = 50;
     config.filebrowserUploadUrl = '/upload/upload_to_vendor/image';
