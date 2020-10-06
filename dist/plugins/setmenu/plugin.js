@@ -32,14 +32,16 @@ CKEDITOR.plugins.add( 'setmenu', {
 	        setTimeout(function() {
 
 	        	var baseSize = null;
-				if (editor.config.use_em === true) {
-					$('#ckeditor-test-font-size').remove();
-					$baseline = $('<div id="ckeditor-test-font-size" style="font-size: 1em;"></div>');
-					var $wrapper = $element.parents('.js_ckeditor_wrapper');
-					$wrapper.after($baseline);
-					baseSize = parseInt($('#ckeditor-test-font-size').css('font-size'), 10);
-					$('#ckeditor-test-font-size').remove();
-				}
+
+                if (editor.config.use_em === true) {
+                    var $baseline = $('<div id="ckeditor-test-font-size" style="font-size: 1em;"></div>'),
+                        $wrapper = $element.parents('.js_ckeditor_wrapper');
+
+                    $wrapper.siblings('#ckeditor-test-font-size').remove();
+                    $wrapper.after($baseline);
+                    baseSize = parseInt($wrapper.siblings('#ckeditor-test-font-size').css('font-size'), 10);
+                    $wrapper.siblings('#ckeditor-test-font-size').remove();
+                }
 
 	            var fontMenu = e.editor.ui.get('favfonts') || e.editor.ui.get('Font') //The fontMenu
 	                , fontSizeMenu = e.editor.ui.get('FontSize') //the FontSize Menu
