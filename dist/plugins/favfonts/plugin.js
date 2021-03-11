@@ -74,8 +74,8 @@
       }
 
       combinedFonts.sort(function compare(a, b) {
-        if (typeof a.id === 'undefined') a.id = 9999;
-        if (typeof b.id === 'undefined') b.id = 9999;
+        if (typeof a.id === 'undefined') a.id = 99999999;
+        if (typeof b.id === 'undefined') b.id = 99999999;
         return a.id - b.id || a.font.localeCompare(b.font);
       });
       allFonts = combinedFonts;
