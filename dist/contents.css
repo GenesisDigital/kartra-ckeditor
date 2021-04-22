@@ -9,7 +9,35 @@ body {
     word-break: break-all;
     word-break: normal;
     word-break: break-word;
+
+
 }
+
+.cke_editable::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+.cke_editable::-webkit-scrollbar-thumb {
+    background: #99a6c8;
+    border-radius: 3px;
+  }
+  
+  .cke_editable::-webkit-scrollbar-track {
+    background: #F3F5FA;
+    border-radius: 3px;
+  }
+  
+  .cke_editable {
+    scrollbar-face-color: #99a6c8;
+    scrollbar-track-color: #F3F5FA;
+  }
+  
+  .cke_editable,
+  .cke_editable * {
+    scrollbar-width: thin;
+    scrollbar-color: #99a6c8 #F3F5FA;
+  }
 
 .cke_editable blockquote {
     font-style: italic;
