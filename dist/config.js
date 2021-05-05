@@ -79,8 +79,6 @@ CKEDITOR.editorConfig = function( config ) {
     config.disableNativeSpellChecker = false;
     //responsive option shoud be checked by default
     config.youtube_responsive = true;
-    config.skin = 'kartra-backend,/css/new/css/v5/3rd_party/kartra-ckeditor/';
-
     CKEDITOR.on('instanceReady', function (ev) {
         // Ends self closing tags the HTML4 way, like <br>.
         ev.editor.dataProcessor.htmlFilter.addRules(
