@@ -30,7 +30,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
             { name: 'indent', items: ['Outdent', 'Indent'] },
             { name: 'links', items : [ 'Link','Unlink'] },
-            { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule'] },
+            { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule','EmojiPanel'] },
             { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] }
         ];
 
