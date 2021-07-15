@@ -221,7 +221,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
 
             if (editor.elementMode === 1){
                 var inline = false;
-                newContent = editor.document['$'].body.innerHTML;
+                newContent = editor.getData();
             } else {
                 var inline = true;
             }
@@ -240,13 +240,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
 
                 var selectionPositions = getSelectionPositions();
                 if (selectionPositions !== null) {
-                    if (inline) {
-                        editor.editable().setHtml(oldContent);
-                        oldContent = editor.element.getHtml();
-                    } else {
-                        editor.document['$'].body.innerHTML = oldContent;
-                    }
-
+                    editor.editable().setHtml(oldContent);
 
                     getSelectionNodes(selectionPositions);
             		var nodes = getSelectionNodes(selectionPositions);
@@ -262,7 +256,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
         var currentLength = 0;
         editor.on('change', function(event) {
             if (editor.elementMode === 1){
-                var length = $(editor.document['$'].body.innerHTML).length ? $(editor.document['$'].body.innerHTML)[0].textContent.length : 0;
+                var length = $(editor.getData()).length ? $(editor.getData())[0].textContent.length : 0;
                 if (length === currentLength) {
                     oldContentGlobal = mergeStyles(oldContentGlobal);
                     contentChangedBefore = true;
@@ -279,7 +273,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                     if ($(event.data['$'].target).parents('.cke_toolbox').length > 0) {
                         if (oldContentGlobal === null) {
                             if (editor.elementMode === 1){
-                                oldContentGlobal = editor.document['$'].body.innerHTML;
+                                oldContentGlobal = editor.getData();
                             } else {
                                 oldContentGlobal = editor.element.getHtml();
                             }
