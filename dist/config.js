@@ -83,6 +83,8 @@ CKEDITOR.editorConfig = function( config ) {
     config.disableNativeSpellChecker = false;
     //responsive option shoud be checked by default
     config.youtube_responsive = true;
+	config.youtube_older = false;
+
     CKEDITOR.on('instanceReady', function (ev) {
         // Ends self closing tags the HTML4 way, like <br>.
         ev.editor.dataProcessor.htmlFilter.addRules(
