@@ -13,7 +13,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
 
         //If you set styles on certain elements ckeditor freaks out
         var unwrapNonSpans = function ($element) {
-            $element.find("*").not('span').not('iframe').not('img').not('div').not('p').not('ul').not('ol').each(function() {
+            $element.find("*").not('span').not('iframe').not('img').not('div').not('p').not('ul').not('ol').not('li').each(function() {
                 var style = $(this)[0].style.cssText;
                 var processedStyles = getStyles($(this));
                 if (processedStyles.identical) {
