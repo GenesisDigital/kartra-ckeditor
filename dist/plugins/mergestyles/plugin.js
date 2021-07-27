@@ -6,14 +6,14 @@ CKEDITOR.plugins.add( 'mergestyles', {
         //Used to check for closest block parent to set block properties (in this plugin, line-height) on
         var blockElements = 'p, li, ol, ul, h1, h2, h3, h4, h5, h6, dl, dt, div, tl, td, form, table, fieldset, div, hr, body, blockquote, address';
 
-        var oldContentGlobal = null;
+        var oldContent = null;
         var inlineStyle = function($element, prop) {
             return $element.prop("style")[$.camelCase(prop)];
         }
 
         //If you set styles on certain elements ckeditor freaks out
         var unwrapNonSpans = function ($element) {
-            $element.find("*").not('span').not('iframe').not('img').not('div').not('p').not('ul').not('ol').not('li').each(function() {
+            $element.find("*").not('span').not('iframe').not('img').not('div').not('p').each(function() {
                 var style = $(this)[0].style.cssText;
                 var processedStyles = getStyles($(this));
                 if (processedStyles.identical) {
@@ -43,15 +43,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
             var returnVal = $element;
             if ($element.clone().children().remove().end().text().trim() === '') {
                 returnVal = $element.clone();
-                var onlyBr = true;
-
-                $element.children().each(function(){
-                    if ($(this).prop('tagName') !== 'BR') {
-                        onlyBr = false;
-                    }
-                });
-
-                if ($element.prop("tagName") === 'SPAN' && parentStyles.identical && !onlyBr ) {
+                if ($element.prop("tagName") === 'SPAN' && parentStyles.identical) {
                     $element.children().unwrap();
                 }
             }
@@ -241,7 +233,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                 var selectionPositions = getSelectionPositions();
                 if (selectionPositions !== null) {
                     if (inline) {
-                        editor.editable().setHtml(oldContent);
+                        editor.setData(oldContent);
                         oldContent = editor.element.getHtml();
                     } else {
                         editor.document['$'].body.innerHTML = oldContent;
@@ -264,7 +256,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
             if (editor.elementMode === 1){
                 var length = $(editor.document['$'].body.innerHTML).length ? $(editor.document['$'].body.innerHTML)[0].textContent.length : 0;
                 if (length === currentLength) {
-                    oldContentGlobal = mergeStyles(oldContentGlobal);
+                    oldContent = mergeStyles(oldContent);
                     contentChangedBefore = true;
                     contentChangedAfter = true;
                 } else {
@@ -277,16 +269,16 @@ CKEDITOR.plugins.add( 'mergestyles', {
             if (editor.elementMode === 3){
                 this.document.on('click', function(event){
                     if ($(event.data['$'].target).parents('.cke_toolbox').length > 0) {
-                        if (oldContentGlobal === null) {
+                        if (oldContent === null) {
                             if (editor.elementMode === 1){
-                                oldContentGlobal = editor.document['$'].body.innerHTML;
+                                oldContent = editor.document['$'].body.innerHTML;
                             } else {
-                                oldContentGlobal = editor.element.getHtml();
+                                oldContent = editor.element.getHtml();
                             }
                         }
 
                         editor.fire( 'saveSnapshot' );
-                        oldContentGlobal = mergeStyles(oldContentGlobal);
+                        oldContent = mergeStyles(oldContent);
                         contentChangedBefore = true;
                         contentChangedAfter = true;
                     }
@@ -299,7 +291,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                 contentChangedBefore = false;
             } else if (contentChangedAfter) {
                 contentChangedAfter = false;
-                oldContentGlobal = mergeStyles(oldContentGlobal);
+                oldContent = mergeStyles(oldContent);
             }
         });
     }
