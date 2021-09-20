@@ -7,13 +7,14 @@ CKEDITOR.plugins.add( 'mergestyles', {
         var blockElements = 'p, li, ol, ul, h1, h2, h3, h4, h5, h6, dl, dt, div, tl, td, form, table, fieldset, div, hr, body, blockquote, address';
 
         var oldContent = null;
+
         var inlineStyle = function($element, prop) {
             return $element.prop("style")[$.camelCase(prop)];
         }
 
         //If you set styles on certain elements ckeditor freaks out
         var unwrapNonSpans = function ($element) {
-            $element.find("*").not('span').not('iframe').not('img').not('div').not('p').each(function() {
+            $element.find("*").not('span').not('iframe').not('img').not('div').not('p').not('ul').not('ol').not('li').each(function() {
                 var style = $(this)[0].style.cssText;
                 var processedStyles = getStyles($(this));
                 if (processedStyles.identical) {
@@ -25,28 +26,44 @@ CKEDITOR.plugins.add( 'mergestyles', {
                 }
             });
         }
+
         var cascadeParameters = function ($element) {
             var parentStyles = getStyles($element);
+
             $element.children().each(function() {
                 var childStyles = JSON.parse(JSON.stringify(parentStyles.styles));
                 var stylesList = $(this).prop("style");
                 var i = 0;
+
                 while (stylesList[i] !== undefined) {
                     if (textProperties.indexOf(stylesList[i]) !== -1) {
                         childStyles[stylesList[i]] = inlineStyle($(this), stylesList[i]);
                     }
                     i++;
                 }
+
                 $(this).css(childStyles);
                 cascadeParameters($(this));
             });
+
             var returnVal = $element;
+
             if ($element.clone().children().remove().end().text().trim() === '') {
+                var onlyBr = true;
+
                 returnVal = $element.clone();
-                if ($element.prop("tagName") === 'SPAN' && parentStyles.identical) {
+
+                $element.children().each(function(){
+                    if ($(this).prop('tagName') !== 'BR') {
+                        onlyBr = false;
+                    }
+                });
+
+                if ($element.prop("tagName") === 'SPAN' && parentStyles.identical && !onlyBr) {
                     $element.children().unwrap();
                 }
             }
+
             return returnVal;
         }
 
@@ -54,10 +71,13 @@ CKEDITOR.plugins.add( 'mergestyles', {
             var styles = {};
             var noOtherStyles = true;
             var stylesList = $element.prop("style");
+
             if (stylesList === undefined) {
                 stylesList = [];
             }
+
             var i = 0;
+
             while (stylesList[i] !== undefined) {
                 if (textProperties.indexOf(stylesList[i]) !== -1) {
                     styles[stylesList[i]] = inlineStyle($element, stylesList[i]);
@@ -66,6 +86,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                 }
                 i++;
             }
+
             return {styles: styles, identical: noOtherStyles};
         }
 
@@ -76,6 +97,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                 var text = editor.getSelection().getSelectedText();
                 var elementPosition = 0;
                 var addElementLength = true;
+
                 editor.editable().forEach( function( node ) {
                     if (node['$'] === element['$']) {
                         addElementLength = false;
@@ -103,6 +125,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
             var startNode = null;
             var endNode = null;
             var prevNode = null;
+
             editor.editable().forEach( function( node ) {
                 var samePosition = elementPosition === positions.start;
                 var nodeLength = $(node['$']).text().length;
@@ -120,7 +143,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                     }
                 }
                 prevNode = node;
-            } );
+            });
 
 			return [startNode, endNode];
         };
@@ -142,12 +165,15 @@ CKEDITOR.plugins.add( 'mergestyles', {
             if (editor.getSelection().getStartElement() === null) {
                 return;
             }
+
             var $selection = $(editor.getSelection().getStartElement()['$']);
             var lineHeight = inlineStyle($selection, 'line-height');
+
             while (lineHeight === '' && !$selection.is(blockElements)){
                 $selection = $selection.parent();
                 lineHeight = inlineStyle($selection, 'line-height');
             }
+
             if (lineHeight !== '') {
                 $("[style*='line-height']", $content).each(function() {
                     if (inlineStyle($(this), 'line-height') === lineHeight) {
@@ -204,35 +230,40 @@ CKEDITOR.plugins.add( 'mergestyles', {
             }
         };
 
-        var mergeStyles = function (oldContent) {
-
+        var mergeStyles = function(currentContent) {
             if (typeof editor.element === 'undefined') {
-                return oldContent;
+                return currentContent;
             }
+
             var newContent = editor.element.getHtml();
+            var inline = true;
 
             if (editor.elementMode === 1){
-                var inline = false;
-                newContent = editor.getData();
-            } else {
-                var inline = true;
+                inline = false;
+                newContent = editor.document['$'].body.innerHTML;
             }
 
-            if (oldContent !== newContent && newContent.indexOf('span') !== -1) {
+            if (currentContent !== newContent && newContent.indexOf('span') !== -1) {
                 var $newContentObject = $(newContent).wrapAll('<div />').parent();
-                oldContent = cascadeParameters($newContentObject);
+                currentContent = cascadeParameters($newContentObject);
 
                 if (editor.config.use_em !== true) {
-                    setFontSize(oldContent);
+                    setFontSize(currentContent);
                 }
 
-                setLineHeight(oldContent);
-                unwrapNonSpans(oldContent);
-                oldContent = $(oldContent[0]).html();
+                setLineHeight(currentContent);
+                unwrapNonSpans(currentContent);
+                currentContent = $(currentContent[0]).html();
 
                 var selectionPositions = getSelectionPositions();
+
                 if (selectionPositions !== null) {
-                    editor.editable().setHtml(oldContent);
+                    if (inline) {
+                        editor.setData(currentContent);
+                        currentContent = editor.element.getHtml();
+                    } else {
+                        editor.document['$'].body.innerHTML = currentContent;
+                    }
 
                     getSelectionNodes(selectionPositions);
             		var nodes = getSelectionNodes(selectionPositions);
@@ -240,15 +271,16 @@ CKEDITOR.plugins.add( 'mergestyles', {
                 }
             }
 
-            return oldContent;
+            return currentContent;
         }
 
         var contentChangedBefore = false;
         var contentChangedAfter = false;
         var currentLength = 0;
+
         editor.on('change', function(event) {
             if (editor.elementMode === 1){
-                var length = $(editor.getData()).length ? $(editor.getData())[0].textContent.length : 0;
+                var length = $(editor.document['$'].body.innerHTML).length ? $(editor.document['$'].body.innerHTML)[0].textContent.length : 0;
                 if (length === currentLength) {
                     oldContent = mergeStyles(oldContent);
                     contentChangedBefore = true;
@@ -265,7 +297,7 @@ CKEDITOR.plugins.add( 'mergestyles', {
                     if ($(event.data['$'].target).parents('.cke_toolbox').length > 0) {
                         if (oldContent === null) {
                             if (editor.elementMode === 1){
-                                oldContent = editor.getData();
+                                oldContent = editor.document['$'].body.innerHTML;
                             } else {
                                 oldContent = editor.element.getHtml();
                             }
