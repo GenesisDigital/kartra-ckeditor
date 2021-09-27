@@ -69,7 +69,7 @@ CKEDITOR.editorConfig = function( config ) {
     
     //config.extraPlugins = 'uploadimage';
 //  config.uploadUrl = '/upload/upload_to_vendor/image';
-    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font,pastetools,pastefromword';
+    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font,pastetext, pastefromgdocs, pastefromword, pastefromlibreoffice';
     config.removePlugins = 'liststyle,scayt';
     config.emoji_minChars = 3;
     config.textShadow_minValue = -50;
