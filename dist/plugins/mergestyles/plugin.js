@@ -40,7 +40,7 @@ CKEDITOR.plugins.add('mergestyles', {
                             }
                         }
 
-                        editor.fire( 'saveSnapshot' );
+                        editor.fire('saveSnapshot');
                         oldContent = mergeStyles(oldContent);
                         
                         contentChangedBefore = true;
@@ -94,8 +94,6 @@ CKEDITOR.plugins.add('mergestyles', {
                 unwrapNonSpans(currentContent);
 
                 currentContent = $(currentContent[0]).html();
-
-//                console.log('after unwrap: ', currentContent);
 
                 var selectionPositions = getSelectionPositions();
 
