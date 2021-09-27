@@ -31,8 +31,6 @@ CKEDITOR.plugins.add('mergestyles', {
         editor.on('contentDom', function() {
             if (editor.elementMode === 3) {
                 this.document.on('click', function(event){
-                    console.log('contentDom');
-
                     if ($(event.data['$'].target).parents('.cke_toolbox').length > 0) {
                         if (oldContent === null) {
                             if (editor.elementMode === 1){
@@ -44,6 +42,7 @@ CKEDITOR.plugins.add('mergestyles', {
 
                         editor.fire( 'saveSnapshot' );
                         oldContent = mergeStyles(oldContent);
+                        
                         contentChangedBefore = true;
                         contentChangedAfter = true;
                     }
@@ -59,8 +58,6 @@ CKEDITOR.plugins.add('mergestyles', {
                 contentChangedBefore = false;
             } else if (contentChangedAfter) {
                 contentChangedAfter = false;
-
-                console.log('save snapshot');
 
                 oldContent = mergeStyles(oldContent);
             }
