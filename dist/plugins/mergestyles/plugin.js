@@ -13,8 +13,8 @@ CKEDITOR.plugins.add('mergestyles', {
 
         editor.on('change', function() {
             if (editor.elementMode === 1){
-                var length = $(editor.document['$'].body.innerHTML).length
-                    ? $(editor.document['$'].body.innerHTML)[0].textContent.length :
+                var length = $(editor.getData()).length
+                    ? $(editor.getData())[0].textContent.length :
                     0;
 
                 if (length === currentLength) {
@@ -34,7 +34,7 @@ CKEDITOR.plugins.add('mergestyles', {
                     if ($(event.data['$'].target).parents('.cke_toolbox').length > 0) {
                         if (oldContent === null) {
                             if (editor.elementMode === 1){
-                                oldContent = editor.document['$'].body.innerHTML;
+                                oldContent = editor.getData();
                             } else {
                                 oldContent = editor.element.getHtml();
                             }
@@ -68,12 +68,12 @@ CKEDITOR.plugins.add('mergestyles', {
                 return currentContent;
             }
 
-            var newContent,
-                inline = true;
+            var newContent;
+//                inline = true;
 
             if (editor.elementMode === 1){
-                inline = false;
-                newContent = editor.document['$'].body.innerHTML;
+//                inline = false;
+                newContent = editor.getData();
             } else {
                 newContent = editor.element.getHtml();
             }
@@ -98,12 +98,14 @@ CKEDITOR.plugins.add('mergestyles', {
                 var selectionPositions = getSelectionPositions();
 
                 if (selectionPositions !== null) {
-                    if (inline) {
-                        editor.setData(currentContent);
-                        currentContent = editor.element.getHtml();
-                    } else {
-                        editor.document['$'].body.innerHTML = currentContent;
-                    }
+                    editor.editable().setHtml(currentContent);
+
+//                    if (inline) {
+//                        editor.setData(currentContent);
+//                        currentContent = editor.element.getHtml();
+//                    } else {
+//                        editor.document['$'].body.innerHTML = currentContent;
+//                    }
 
                     var nodes = getSelectionNodes(selectionPositions);
 
