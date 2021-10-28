@@ -30,7 +30,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
             { name: 'indent', items: ['Outdent', 'Indent'] },
             { name: 'links', items : [ 'Link','Unlink'] },
-            { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule'] },
+            { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule','EmojiPanel'] },
             { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] }
         ];
 
@@ -41,6 +41,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+            { name: 'insert', items: [ 'EmojiPanel'] }
         ];
 
         
@@ -51,7 +52,8 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { name: 'links', items : [ 'Link','Unlink'] },
         { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
-        { name: 'styles', items: [ 'favfonts', 'FontSize', 'lineheight', 'TextShadow', 'Format'] } // we leave favfonts here because we want it in Page Builder
+        { name: 'styles', items: [ 'favfonts', 'FontSize', 'lineheight', 'TextShadow', 'Format'] }, // we leave favfonts here because we want it in Page Builder
+        { name: 'insert', items: [ 'EmojiPanel'] }
     ];
 
     config.toolbar = 'basic';
@@ -67,7 +69,9 @@ CKEDITOR.editorConfig = function( config ) {
     
     //config.extraPlugins = 'uploadimage';
 //  config.uploadUrl = '/upload/upload_to_vendor/image';
-    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colordialog,textShadow,mergestyles,setmenu';
+    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font';
+    config.removePlugins = 'liststyle,scayt';
+    config.emoji_minChars = 3;
     config.textShadow_minValue = -50;
     config.textShadow_maxValue = 50;
     config.filebrowserUploadUrl = '/upload/upload_to_vendor/image';
@@ -79,6 +83,8 @@ CKEDITOR.editorConfig = function( config ) {
     config.disableNativeSpellChecker = false;
     //responsive option shoud be checked by default
     config.youtube_responsive = true;
+	config.youtube_older = false;
+
     CKEDITOR.on('instanceReady', function (ev) {
         // Ends self closing tags the HTML4 way, like <br>.
         ev.editor.dataProcessor.htmlFilter.addRules(
