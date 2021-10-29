@@ -84,6 +84,7 @@ CKEDITOR.editorConfig = function( config ) {
     //responsive option shoud be checked by default
     config.youtube_responsive = true;
 	config.youtube_older = false;
+	config.language = 'en';
 
     CKEDITOR.on('instanceReady', function (ev) {
         // Ends self closing tags the HTML4 way, like <br>.
