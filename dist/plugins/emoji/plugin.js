@@ -115,8 +115,8 @@
 					toolbar: 'insert',
 					panel: {
 						css: [
-							CKEDITOR.skin.getPath( 'editor' ),
-							plugin.path + 'skins/default.css'
+							// CKEDITOR.skin.getPath( 'editor' ),
+							// plugin.path + 'skins/default.css'
 						],
 						attributes: {
 							role: 'listbox',
