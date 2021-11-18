@@ -128,14 +128,7 @@ CKEDITOR.editorConfig = function( config ) {
                 }
             });
             ev.editor.on('paste', function(evt) {
-                evt.stop();
-                var currentData = evt.editor.getData();
-                var pastedData = evt.data.dataValue;
-                regexp1 = /id=(("|')[^"]*("|')|^[^"]*$)/ig;
-                pastedData = pastedData.replace(regexp1, '');
-                // var container = CKEDITOR.dom.element.createFromHtml('<div>' + pastedData + '</div>', evt.editor.document);
-                // evt.editor.insertElement(container)
-                evt.editor.insertHtml(pastedData);
+                evt.data.dataValue = evt.data.dataValue.replace( /id=(("|')[^"]*("|')|^[^"]*$)/ig, '' );
             }, ev.editor.element.$);
 
         });
