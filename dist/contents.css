@@ -19,24 +19,24 @@ body {
   }
   
 .cke_editable::-webkit-scrollbar-thumb {
-    background: #99a6c8;
+    background: #00abfb;
     border-radius: 3px;
   }
   
   .cke_editable::-webkit-scrollbar-track {
-    background: #F3F5FA;
+    background: #eee;
     border-radius: 3px;
   }
   
   .cke_editable {
-    scrollbar-face-color: #99a6c8;
-    scrollbar-track-color: #F3F5FA;
+    scrollbar-face-color: #00abfb;
+    scrollbar-track-color: #eee;
   }
   
   .cke_editable,
   .cke_editable * {
     scrollbar-width: thin;
-    scrollbar-color: #99a6c8 #F3F5FA;
+    scrollbar-color: #00abfb #eee;
   }
 
 .cke_editable blockquote {
