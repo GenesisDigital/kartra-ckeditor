@@ -634,7 +634,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=454832
 				var editor = ev.editor,
 					config = editor.config,
 					file = ev.data && ev.data.file,
-					$placeholder = $('<img class="ckeditor-image-upload-placeholder" src="https://d2uolguxr56s4e.cloudfront.net/img/shared/processing_new.gif">'),
+					$placeholder = $('<img class="ckeditor-image-upload-placeholder" src="https://d2uolguxr56s4e.cloudfront.net/img/shared/processing_new_dark.svg">'),
 					$element = $(ev.data.element['$']);
 				$element.children().hide();
 				$element.append($placeholder).width(166).height(166);

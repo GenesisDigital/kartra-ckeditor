@@ -116,7 +116,7 @@
 					panel: {
 						css: [
 							CKEDITOR.skin.getPath( 'editor' ),
-							plugin.path + 'skins/default.css'
+							// plugin.path + 'skins/default.css'
 						],
 						attributes: {
 							role: 'listbox',
