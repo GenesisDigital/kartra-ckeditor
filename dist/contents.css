@@ -238,6 +238,8 @@ body {
 }
 
 .cke_front_helpdesk_builder.cke_editable blockquote {
+    border-left-width: 0;
+    padding: 0;
     padding-inline: 45px 20px;
     border-inline-start-width: 2px;
 }
