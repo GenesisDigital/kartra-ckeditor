@@ -252,6 +252,12 @@ body {
     margin-bottom: 15px !important;
 }
 
+.cke_front_helpdesk_builder.cke_editable ul,
+.cke_front_helpdesk_builder.cke_editable ol {
+    margin-left: 0;
+    margin-inline-start: 45px;
+}
+
 
 /*  LATO LIGHT */
 
