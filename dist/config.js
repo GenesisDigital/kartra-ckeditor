@@ -34,6 +34,18 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] }
         ];
 
+    config.toolbar_basic_with_mediaLibrary =
+        [
+            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline','Strike'] },
+            { name: 'paragraph', items : [ 'NumberedList','BulletedList','Blockquote']},
+            { name: 'alignment', items : [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+            { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
+            { name: 'indent', items: ['Outdent', 'Indent'] },
+            { name: 'links', items : [ 'Link','Unlink'] },
+            { name: 'insert', items : [ 'imageLibrary','Youtube','HorizontalRule','EmojiPanel'] },
+            { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] }
+        ];
+
     config.toolbar_inline =
         [
             { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline','Strike'] },
@@ -69,7 +81,7 @@ CKEDITOR.editorConfig = function( config ) {
     
     //config.extraPlugins = 'uploadimage';
 //  config.uploadUrl = '/upload/upload_to_vendor/image';
-    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font';
+    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font,imagelibrary';
     config.removePlugins = 'liststyle,scayt';
     config.emoji_minChars = 3;
     config.textShadow_minValue = -50;
