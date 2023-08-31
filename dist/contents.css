@@ -12,18 +12,18 @@ body {
 }
 
 .cke_editable::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
   
 .cke_editable::-webkit-scrollbar-thumb {
-    background: #00abfb;
-    border-radius: 3px;
+    background: #dcdee0;
+    border-radius: 4px;
   }
   
   .cke_editable::-webkit-scrollbar-track {
-    background: #eee;
-    border-radius: 3px;
+    background: #f5f5f6;
+    border-radius: 4px;
   }
   
   .cke_editable {
