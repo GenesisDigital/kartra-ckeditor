@@ -148,8 +148,8 @@
 						block.element.setHtml( self.createEmojiBlock() );
 						block.element.removeAttribute( 'title' );
 						panel.element.addClass( 'cke_emoji-panel' );
-						
-						if (document.querySelector("html").classList.contains('dark-mode')) {
+
+						if (document.querySelector( 'html' ).classList.contains( 'dark-mode' )) {
 							block.element.getAscendant( 'html' ).addClass( 'dark-mode' );
 						}
 
