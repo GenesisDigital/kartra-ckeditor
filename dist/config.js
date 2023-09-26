@@ -96,7 +96,13 @@ CKEDITOR.editorConfig = function( config ) {
     //responsive option shoud be checked by default
     config.youtube_responsive = true;
     config.youtube_older = false;
-    config.skin = window.jsVars.theme == 'dark-mode' ? 'kartra-backend-dark,/css/new/css/v5/3rd_party/kartra-ckeditor/dark/' : 'kartra-backend,/css/new/css/v5/3rd_party/kartra-ckeditor/default/';
+    if (window.jsVars) {
+        config.skin = window.jsVars.theme === 'dark-mode' ? 'kartra-backend-dark,/css/new/css/v5/3rd_party/kartra-ckeditor/dark/' : 'kartra-backend,/css/new/css/v5/3rd_party/kartra-ckeditor/default/';
+    } else if (window.top.jsVars) {
+        config.skin = window.top.jsVars.theme === 'dark-mode' ? 'kartra-backend-dark,/css/new/css/v5/3rd_party/kartra-ckeditor/dark/' : 'kartra-backend,/css/new/css/v5/3rd_party/kartra-ckeditor/default/';
+    } else {
+        config.skin = 'kartra-backend,/css/new/css/v5/3rd_party/kartra-ckeditor/default/';
+    }
     config.language = 'en';
 
     CKEDITOR.on('instanceReady', function (ev) {
