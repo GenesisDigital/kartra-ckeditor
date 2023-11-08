@@ -65,7 +65,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'links', items : [ 'Link','Unlink'] },
         { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
         { name: 'styles', items: [ 'favfonts', 'FontSize', 'lineheight', 'TextShadow', 'Format'] }, // we leave favfonts here because we want it in Page Builder
-        { name: 'insert', items: [ 'EmojiPanel'] }
+        { name: 'insert', items: [ 'BidiRtl'] }
     ];
 
     config.toolbar = 'basic';
@@ -81,7 +81,7 @@ CKEDITOR.editorConfig = function( config ) {
     
     //config.extraPlugins = 'uploadimage';
 //  config.uploadUrl = '/upload/upload_to_vendor/image';
-    config.extraPlugins = 'simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font,imagelibrary';
+    config.extraPlugins = 'bidi,simpleuploads,justify,dropdownFix,youtube,lineheight,colorbutton,colordialog,textShadow,mergestyles,setmenu,emoji,font,imagelibrary';
     config.removePlugins = 'liststyle,scayt';
     config.emoji_minChars = 3;
     config.textShadow_minValue = -50;
