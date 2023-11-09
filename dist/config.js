@@ -19,8 +19,8 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'basicstyles', groups: [ 'basicstyles' ] },
         { name: 'paragraph',    groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
         { name: 'styles' },
-        { name: 'colors' },,
-        { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ]}
+        { name: 'colors' },
+        { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ] }
     ];
 
     config.toolbar_basic =
@@ -33,7 +33,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'insert', items : [ 'addImage','Youtube','HorizontalRule','EmojiPanel'] },
             { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] },
-            { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ]}
+            { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ] }
         ];
 
     config.toolbar_basic_with_mediaLibrary =
@@ -46,7 +46,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'insert', items : [ 'imageLibrary','Youtube','HorizontalRule','EmojiPanel'] },
             { name: 'styles', items: [ 'FontSize', 'lineheight', 'Font' ] },
-            { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ]}
+            { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ] }
         ];
 
     config.toolbar_inline =
@@ -57,7 +57,7 @@ CKEDITOR.editorConfig = function( config ) {
             { name: 'links', items : [ 'Link','Unlink'] },
             { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
             { name: 'insert', items: [ 'EmojiPanel'] },
-            { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ]}
+            { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ] }
         ];
 
         
@@ -70,7 +70,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'colors', items: [ 'TextColor' ,'BGColor'] },
         { name: 'styles', items: [ 'favfonts', 'FontSize', 'lineheight', 'TextShadow', 'Format'] }, // we leave favfonts here because we want it in Page Builder
         { name: 'insert', items: [ 'EmojiPanel' ] },
-        { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ]}
+        { name: 'bidi', items: [ 'BidiLtr', 'BidiRtl' ] }
     ];
 
     config.toolbar = 'basic';
