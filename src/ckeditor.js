@@ -14,6 +14,7 @@ import { FontFamily, FontBackgroundColor, FontSize, FontColor } from '@ckeditor/
 import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
+import { ImageLibrary } from '../plugins/imageLibrary/imageLibrary';
 import { Image, ImageCaption, ImageStyle, ImageToolbar, ImageUpload, PictureEditing } from '@ckeditor/ckeditor5-image';
 import { Indent } from '@ckeditor/ckeditor5-indent';
 import { Link } from '@ckeditor/ckeditor5-link';
@@ -33,7 +34,7 @@ class InlineEditor extends InlineEditorBase {}
 const defaultConfig = {
 	toolbar: { 
 		items: [
-			'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
+			'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
 			'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'bulletedList', 'numberedList',
 			'-',
 			'strikethrough', 'findAndReplace', 'mediaEmbed', 'insertTable', 'heading', 'pageBreak', 'horizontalLine'
@@ -85,6 +86,7 @@ const builtinPlugins = [
 	HorizontalLine,
 	Image,
 	ImageCaption,
+	ImageLibrary,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
