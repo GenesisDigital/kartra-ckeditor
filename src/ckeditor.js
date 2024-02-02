@@ -9,6 +9,7 @@ import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CKBox } from '@ckeditor/ckeditor5-ckbox';
 import { CKFinder } from '@ckeditor/ckeditor5-ckfinder';
 import { EasyImage } from '@ckeditor/ckeditor5-easy-image';
+import { FavFonts } from '../plugins/favFonts/favFonts';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { FontFamily, FontBackgroundColor, FontSize, FontColor } from '@ckeditor/ckeditor5-font';
 import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
@@ -34,7 +35,7 @@ class InlineEditor extends InlineEditorBase {}
 const defaultConfig = {
 	toolbar: { 
 		items: [
-			'fontFamily', 'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
+			'favFonts', 'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
 			'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'bulletedList', 'numberedList',
 			'-',
 			'strikethrough', 'findAndReplace', 'mediaEmbed', 'insertTable', 'heading', 'pageBreak', 'horizontalLine'
@@ -77,7 +78,7 @@ const builtinPlugins = [
 	CloudServices,
 	EasyImage,
 	FindAndReplace,
-	FontFamily,
+	FavFonts,
 	FontSize,
 	FontBackgroundColor,
 	FontColor,
