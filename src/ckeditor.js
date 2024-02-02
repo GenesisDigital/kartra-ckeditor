@@ -34,7 +34,7 @@ class InlineEditor extends InlineEditorBase {}
 const defaultConfig = {
 	toolbar: { 
 		items: [
-			'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
+			'fontFamily', 'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
 			'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'bulletedList', 'numberedList',
 			'-',
 			'strikethrough', 'findAndReplace', 'mediaEmbed', 'insertTable', 'heading', 'pageBreak', 'horizontalLine'
@@ -77,6 +77,7 @@ const builtinPlugins = [
 	CloudServices,
 	EasyImage,
 	FindAndReplace,
+	FontFamily,
 	FontSize,
 	FontBackgroundColor,
 	FontColor,
