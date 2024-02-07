@@ -10,6 +10,7 @@ import { CKBox } from '@ckeditor/ckeditor5-ckbox';
 import { CKFinder } from '@ckeditor/ckeditor5-ckfinder';
 import { EasyImage } from '@ckeditor/ckeditor5-easy-image';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
+import { FavFonts } from '../plugins/favFonts/favFonts';
 import { FontFamily, FontBackgroundColor, FontSize, FontColor } from '@ckeditor/ckeditor5-font';
 import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
 import { Heading } from '@ckeditor/ckeditor5-heading';
@@ -27,9 +28,6 @@ import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 
-import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
-
-
 class ClassicEditor extends ClassicEditorBase {}
 
 class InlineEditor extends InlineEditorBase {}
@@ -37,7 +35,7 @@ class InlineEditor extends InlineEditorBase {}
 const defaultConfig = {
 	toolbar: { 
 		items: [
-			'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
+			'favFonts', 'imagelibrary', 'undo', 'redo', 'bold', 'italic', 'underline', 'subscript', 'superscript', 'link',
 			'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'bulletedList', 'numberedList',
 			'-',
 			'strikethrough', 'findAndReplace', 'mediaEmbed', 'insertTable', 'heading', 'pageBreak', 'horizontalLine'
@@ -79,6 +77,7 @@ const builtinPlugins = [
 	CKFinder,
 	CloudServices,
 	EasyImage,
+	FavFonts,
 	FindAndReplace,
 	FontSize,
 	FontBackgroundColor,

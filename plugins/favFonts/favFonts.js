@@ -80,7 +80,7 @@ export class FavFonts extends Plugin {
     
             dropdown.extendTemplate({
                 attributes: {
-                    class: 'ck-font-family-dropdown'
+                    class: ['ck-fav-font-dropdown', 'ck-font-family-dropdown']
                 }
             });
             
@@ -93,7 +93,8 @@ export class FavFonts extends Plugin {
                 itemsForDropdown = this.buildFontList(fonts, searchBox, apiRoute);
                 addListToDropdown( dropdown, this.buildFontList(fonts, searchBox, apiRoute), {
                     role: 'menu',
-                    ariaLabel: 'Font Family'
+                    ariaLabel: 'Font Family',
+                    class: 'ck-fav-font-list'
                 } );
 
                 dropdown.on('change:isOpen', (event, name, value) => {
