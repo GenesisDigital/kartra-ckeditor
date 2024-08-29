@@ -1,1 +1,0 @@
-CKEDITOR.plugins.add("dropdownFix",{init:function(t){CKEDITOR.ui.panel.block.prototype.show=function(){var t=this;"Font Name"===$(this.element.$).attr("aria-label")||"Font Size"===$(this.element.$).attr("aria-label")?setTimeout(function(){t.element.setStyle("display","")},200):this.element.setStyle("display","block")}}});
