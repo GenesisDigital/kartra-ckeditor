@@ -38,6 +38,8 @@ CKEDITOR.plugins.add('mergestyles', {
                             } else {
                                 oldContent = editor.element.getHtml();
                             }
+
+                            oldContent = oldContent.trimStart();
                         }
 
                         editor.fire('saveSnapshot');
@@ -77,6 +79,8 @@ CKEDITOR.plugins.add('mergestyles', {
             } else {
                 newContent = editor.element.getHtml();
             }
+
+            newContent = newContent.trimStart();
 
             if (
                 currentContent !== newContent
