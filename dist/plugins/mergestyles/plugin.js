@@ -13,8 +13,9 @@ CKEDITOR.plugins.add('mergestyles', {
 
         editor.on('change', function() {
             if (editor.elementMode === 1){
-                var length = $(editor.document['$'].body.innerHTML).length
-                    ? $(editor.document['$'].body.innerHTML)[0].textContent.length :
+                var $content = $(editor.document['$'].body.innerHTML.trimStart());
+                var length = $content.length
+                    ? $content[0].textContent.length :
                     0;
 
                 if (length === currentLength) {
