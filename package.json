@@ -5,7 +5,7 @@
   "browser": "dist/ckeditor.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GenesisDigital/kartra-ckeditor"
+    "url": "https://github.com/kartrainc/kartra-ckeditor"
   },
   "author": "Doru Palfi",
   "license": "ISC"
